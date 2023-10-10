@@ -1,0 +1,66 @@
+<script>
+    /**
+     * Ejercicio2 de Sintaxis por Silvia Mesa Cofrades
+     * 
+     * Escribe una función que reciba dos parámetros: número de horas trabajadas y precio
+        por hora. Después llama a la función para probar que funciona.
+        La función debe calcular el salario neto semanal de un trabajador en función del número de
+        horas trabajadas y la tasa de impuestos de acuerdo a las siguientes reglas:
+        • Las primeras 35 horas se pagan a tarifa normal.
+        • Las horas que pasen de 35 se pagan a 1.5 veces la tarifa normal.
+        DESARROLLO WEB EN ENTORNO CLIENTE UD02. SINTAXIS DEL LENGUAJE JAVASCRIPT - ACTIVIDADES 02
+        CFGS. DESARROLLO DE APLICACIONES WEB UD01 - PÁGINA 2
+        Al sueldo bruto se le aplicarán las siguientes tasas de impuestos:
+        • Los primeros 500 euros son libres de impuestos.
+        • Los siguientes 400 tienen un 25% de impuestos.
+        • Los restantes un 45% de impuestos.
+        Imprime por consola el salario calculado.*/
+
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //funcion para calcular el salariok bruto//
+        //debug funciona bien//
+        const calculaSalarioBruto=(horas,precio)=>{
+            let salario=0;
+            if(horas<=35){
+                salario=horas*precio;
+                //alert(salario+ "if de salario bruto");
+            }else{
+                const horasExtra=horas-35;
+                salario=(35*precio)+(horasExtra*(precio*1.5));
+                //alert(salario+ "else de salariobruto");
+            }
+            return salario;
+        }
+        //funcion que calcula el sarario neto 
+        const calculaSalarioNeto=(horas,precio)=>{
+            let salarioBruto=calculaSalarioBruto(horas,precio);
+        
+            if(salarioBruto>500 ){
+                if(salarioBruto<=900){
+                    salarioBruto=salarioBruto-500;
+                    salarioBruto=salarioBruto*(1-0.25);
+                    salarioBruto=salarioBruto+500;
+                }else{
+                    salarioBruto=salarioBruto-900;
+                    salarioBruto=salarioBruto*(1-0.45);
+                    salarioBruto=salarioBruto+(400*(1-0.25));
+                    salarioBruto=salarioBruto+500;
+                }
+                return salarioBruto;
+            }
+        }
+        
+
+        alert("El salario neto es "+calculaSalarioNeto(25,40)+ " euros");
+    </script>
+</body>
+</html>

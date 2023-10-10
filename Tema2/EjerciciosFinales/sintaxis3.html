@@ -1,0 +1,34 @@
+<script>
+    /**
+     * Ejercicio3 de sintaxis por Silvia Mesa Cofrades
+     * 
+     * Realiza un programa que lea un numero N y muestre por consola todos los pares desde
+    2 hasta N (inclusive).
+    Cada número se mostrará en una línea distinta.
+    N siempre será mayor o igual a 2.
+    */
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //funcion que iprime los numeros de dos en dos.
+        const imprimePares=(numero)=>{
+            if(numero>=2){
+                for(let i=2;i<=numero;i+=2){
+                    document.write(i+"<br>");
+                }
+            }else{
+                alert("el numero es tan pequeño que no tiene pares");
+            }
+        }
+        imprimePares(48);
+
+    </script>    
+</body>
+</html>

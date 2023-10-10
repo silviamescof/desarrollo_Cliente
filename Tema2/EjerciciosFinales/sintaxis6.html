@@ -1,0 +1,156 @@
+<script>
+    /**
+     * Ejercicio6 de sintaxis por Silvia Mesa Cofrades
+     * 
+     * Realiza una función que reciba un array bidimensional (de longitud variable) un
+escenario de Buscaminas, donde haya un 0 donde no hay minas y un -1 donde si hay.
+Mas información de como funciona el Buscaminas
+DESARROLLO WEB EN ENTORNO CLIENTE UD02. SINTAXIS DEL LENGUAJE JAVASCRIPT - ACTIVIDADES 02
+CFGS. DESARROLLO DE APLICACIONES WEB UD01 - PÁGINA 3
+https://es.wikipedia.org/wiki/Buscaminas
+Para cada casilla que no tenga una mina, diga cuantas minas adyacentes hay en diagonal,
+horizontal y vertical.
+Internamente el programa realizará las acciones con una función definida como
+function contandoMinas(Campo)
+La función devolverá un array bidimensional con el numero de minas adyacentes en cada
+posición.
+Por ejemplo:
+Entrada Resultado
+0 0 -1 0
+0 -1 -1 0
+1 3 -1 2
+1 -1 -1 2
+-1 -1 -1 -1
+-1 -1 -1 0
+-1 -1 -1 -1
+-1 -1 -1 3
+
+     * */
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const mirarIzquierda=(matriz,x,y)=>{
+            if(matriz[y][x-1]==-1)
+            {
+                matriz[y][x]+=1;
+            }
+            return matriz;
+        }
+        const mirarDerecha=(matriz,x,y)=>{
+            if(matriz[y][x+1]==-1)
+            {
+                matriz[y][x]+=1;
+            }
+            return matriz;
+        }
+        const mirarArriba=(matriz,x,y)=>{
+            if(matriz[y-1][x]==-1)
+            {
+                matriz[y][x]+=1;
+            }
+            return matriz;
+        }
+        const mirarAbajo=(matriz,x,y)=>{
+           if(matriz[y+1][x]==-1)
+           {
+                matriz[y][x]+=1;
+            }
+            return matriz;
+        }
+        const mirarDiaSupIzq=(matriz,x,y)=>{
+           if(matriz[y-1][x-1]==-1)
+           {
+                matriz[y][x]+=1;
+            }
+            return matriz;
+        }
+        const mirarDiaSupDer=(matriz,x,y)=>{
+           if(matriz[y-1][x+1]==-1)
+           {
+                matriz[y][x]+=1;
+            }
+            return matriz;
+        }
+        const mirarDiaInfIzq=(matriz,x,y)=>{
+           if(matriz[y+1][x-1]==-1)
+           {
+                matriz[y][x]+=1;
+            }
+            return matriz;
+        }
+        const mirarDiaInfDer=(matriz,x,y)=>{
+           if(matriz[y+1][x+1]==-1)
+           {
+                matriz[y][x]+=1;
+            }
+            return matriz;
+        }
+
+        const buscaminas=(matriz)=>{
+
+            let izquierda=false;
+            let derecha=false;
+            let arriba=false;
+            let abajo=false;
+
+            for(let y=0;y<matriz.length;y++){
+
+                for(let x=0;x<matriz[y].length;x++){
+                    //trabajo en las casillas que debo modificar, si es -1 no cambia
+                    if(matriz[y][x]!=-1){
+                        //reviso las condiciones para mirar arriba abajo derecha e izda
+                        if(x!=0){
+                            matriz=mirarIzquierda(matriz,x,y);
+                            izquierda=true;
+                        }
+                        if(x!=matriz[y].length-1){
+                            matriz=mirarDerecha(matriz,x,y);
+                            derecha=true;
+                        }
+                        if(y!=0){
+                            matriz=mirarArriba(matriz,x,y);
+                            arriba=true;
+                        }
+                        if(y!=matriz.length-1){
+                            matriz=mirarAbajo(matriz,x,y);
+                            abajo=true;
+                        }
+                        //reviso las condiciones para mirar a las diagonales
+
+                        if(arriba==true && izquierda==true){
+                            matriz=mirarDiaSupIzq(matriz,x,y);
+                        }
+                        if(arriba==true && derecha==true){
+                            matriz=mirarDiaSupDer(matriz,x,y);
+                        }
+                        if(abajo==true && izquierda==true){
+                            matriz=mirarDiaInfIzq(matriz,x,y);
+                        }
+                        if(abajo==true && derecha==true){
+                            matriz=mirarDiaInfDer(matriz,x,y);
+                        }
+                        
+                        izquierda=false;
+                        derecha=false;
+                        arriba=false;
+                        abajo=false;    
+                    }
+                    document.write("         "+matriz[y][x]);       
+                }
+                document.write("<br>");
+            }
+        }
+
+        const tablaBidi=[[0,0,-1,0],[0,-1,-1,0]];
+        buscaminas(tablaBidi);
+
+    </script>
+</body>
+</html>

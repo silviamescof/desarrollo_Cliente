@@ -1,0 +1,64 @@
+<script>
+    /**
+     * Ejercicio5 de sintaxis por Silvia Mesa Cofrades
+     * 
+     * Realiza un programa que lea una cantidad de dinero (múltiplo de 5) y tras ello desglose
+    el cambio en billetes de 500,200,100,50,20,10,5 intentado dar el mínimo número de
+    billetes.
+    El programa mostrará por consola el número mínimo de billetes de cada cantidad
+    */
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //funcion que da cambio en billetes de 500,200,100,50,20,10
+        const darCambio=(saldo)=>{
+            //compruebo si es multiplo de 5
+            if(saldo%5==0){
+                //genero un bucle que dara cambio mientras haya saldo
+                while(saldo>=5){
+                    //aprovecho la programacion secuencial para que de todo lo posible de mayor a menor
+                    while(saldo>=500){
+                        saldo-=500;
+                        document.write("billete de 500"+"<br>");
+                    }
+                    while(saldo>=200){
+                        saldo-=200;
+                        document.write("billete de 200"+"<br>");
+                    }
+                    while(saldo>=100){
+                        saldo-=100;
+                        document.write("billete de 100"+"<br>");
+                    }
+                    while(saldo>=50){
+                        saldo-=50;
+                        document.write("billete de 50"+"<br>");
+                    }
+                    while(saldo>=20){
+                        saldo-=20;
+                        document.write("billete de 20"+"<br>");
+                    }
+                    while(saldo>=10){
+                        saldo-=10;
+                        document.write("billete de 10"+"<br>");
+                    }
+                    while(saldo>=5){
+                        saldo-=5;
+                        document.write("billete de 5"+"<br>");
+                    }
+                }
+            }else{
+                alert("solo cambiamos en multiplos de 5, lo siento");
+            }
+        }
+        darCambio(2745);
+
+    </script>
+</body>
+</html>

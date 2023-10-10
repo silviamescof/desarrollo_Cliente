@@ -1,0 +1,47 @@
+<script>
+    /**
+     * Ejercicio4 de sintaxis por Silvia Mesa Cofrades
+     * 
+     * Realiza un programa que lea un numero N y muestre por consola todos los impares
+    desde N(inclusive) hasta 1 .
+    Cada número se mostrará en una línea distinta.
+    N siempre será mayor o igual a 1.
+
+     * */
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //funcion que muestra los impares desde un numero hasta 1
+        const imprimeImpares=(numero)=>{
+            let i=0;
+            //tiene que ser mayor que uno
+            if(numero>=1){
+                //intento saber si parto de un numero par o impar
+                if(numero%2==0){
+                    //si es par, lo hago impar
+                    i=numero-1;
+                }else{
+                    //si es impar lo dejo
+                    i=numero;
+                }
+
+                for(;i>=1;i-=2){
+                    //i es impar, imprimo de ahí hacia atras de dos en dos 
+                    document.write(i+"<br>");
+                }
+            }else{
+                alert("el numero es tan pequeño que no contiene impares");
+            }
+        }
+
+        imprimeImpares(43);
+    </script>
+</body>
+</html>

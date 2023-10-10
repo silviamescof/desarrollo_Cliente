@@ -1,0 +1,76 @@
+<script>
+    /**
+     * Ejercicio8 sintaxis 
+     * 
+     * Realiza una aplicación web que compruebe si una solución de un Sudoku es correcta o
+        no.
+        Una sugerencia de diseño para la aplicación web es que debe tener 9x9 campos de texto y
+        un botón “Comprobar”. Recomiendo un valor por defecto de un Sudoku válido para hacer
+        pruebas
+        La explicación de las reglas del Sudoku las tenéis aquí https://es.wikipedia.org/wiki/Sudoku
+        Internamente el programa realizará la comprobación de si el Sudoku es o no correcto en
+        una función definida como
+        DESARROLLO WEB EN ENTORNO CLIENTE UD02. SINTAXIS DEL LENGUAJE JAVASCRIPT - ACTIVIDADES 02
+        CFGS. DESARROLLO DE APLICACIONES WEB UD01 - PÁGINA 4
+        function esSudokuCorrecto(miArrayBi)
+        que devolverá true si es correcto, false en caso contrario.
+     * */
+
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //ejercicio incompleto//
+        const sudoku= [
+  8, 1, 2,  7, 5, 3,  6, 4, 9,
+  9, 4, 3,  6, 8, 2,  1, 7, 5,
+  6, 7, 5,  4, 9, 1,  2, 8, 3,
+  
+  1, 5, 4,  2, 3, 7,  8, 9, 6,
+  3, 6, 9,  8, 4, 5,  7, 2, 1,
+  2, 8, 7,  1, 6, 9,  5, 3, 4,
+  
+  5, 2, 1,  9, 7, 4,  3, 6, 8,
+  4, 3, 8,  5, 2, 6,  9, 1, 7,
+  7, 9, 6,  3, 1, 8,  4, 5, 2  
+];
+        
+        var incorrecto=false;
+        var arrayAux=[];
+        for(let y=0;y<sudoku.length;y++){
+            arrayAux=sudoku[y];
+            arrayAux.sort(function(a, b){return a - b});
+
+            for(let x=0;x<sudoku[y].length;x++){
+                if(arrayAux[x]!=x+1){
+                    incorrecto=true;
+                    break;
+                }
+            }
+        if(incorrecto===false){
+            for(let x=0;x<sudoku[x].length;x++)
+            {
+
+                arrayAux=sudoku[x];
+                arrayAux.sort(function(a, b){return a - b});
+
+                for(let y=0;y<sudoku.length;y++){
+                    if(arrayAux[x]!=x+1){
+                        incorrecto=true;
+                        break;
+                    }
+                }
+
+
+        }    
+        }
+    }
+    </script>
+</body>
+</html>

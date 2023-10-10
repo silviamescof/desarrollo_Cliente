@@ -1,0 +1,61 @@
+<script>
+    /**
+     * Ejercicio1 de sintaxis.
+     * 
+     * En el juego de casino Blackjack, un jugador puede determinar si tiene una ventaja sobre
+la casa en la próxima mano al realizar un seguimiento del número relativo de cartas altas y
+bajas que quedan en la baraja. Esto se llama Conteo de Cartas.
+Tener más cartas altas restantes en el mazo favorece al jugador. A cada carta se le asigna
+un valor de acuerdo con la siguiente tabla. Cuando la cuenta es positiva, el jugador debe
+apostar alto. Cuando la cuenta es cero o negativa, el jugador debe apostar bajo.
+Conteo Cartas
++1 2, 3, 4, 5, 6
+0 7, 8, 9
+-1 10, 'J', 'Q', 'K', 'A'
+Escribe una función para contar cartas. Recibirá un parámetro llamado card, que puede ser
+un número o una cadena, e incrementará o decrementará la variable count global según el
+valor de la carta. La función luego devolverá una cadena con el conteo actual y la cadena de
+texto, “Bet” si el conteo es positivo, o “Hold” si el conteo es cero o negativo. El conteo actual
+y la decisión del jugador ( Bet o Hold) deben estar separados por un solo espacio.
+Salidas de ejemplo: -3 Hold o 5 Bet*/
+     
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        var conteo=0;
+        const contar=(card)=>{
+            
+            if(card==2||card==3||card==4||card==5||card==6){
+                conteo++;
+            }else if(card==7||card==8||card==9){
+                
+            }else{
+                conteo--;
+            }
+            if(conteo>0){
+                return conteo + "debes apostar";
+            }else{
+                return conteo + "mejor pasamos";
+            }
+            
+        }
+
+
+        let resultado=0;
+        alert(contar(5));
+        alert(contar(4));
+        alert(contar("J"));
+        alert(contar(1));
+
+    </script>
+    
+</body>
+</html>
