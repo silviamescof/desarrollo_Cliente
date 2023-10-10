@@ -1,0 +1,75 @@
+<!Crea un archivo en Javascript que contenga únicamente fórmulas (con los parámetros
+necesarios) para calcular los siguientes valores de cuerpos geométricos:
+– Área del triángulo: a partir de base y altura.
+– Perímetro del triángulo equilátero: a partir de un lado.
+– Perímetro del triángulo isósceles: a partir de dos lados.
+– Perímetro del triángulo escaleno: a partir de tres lados.
+– Área de un cuadrado: a partir de un lado.
+– Perímetro de un cuadrado: a partir de un lado.
+– Área de un rectángulo: a partir de dos lados.
+– Perímetro de un rectángulo: a partir de dos lados.
+– Área del círculo: a partir del radio.
+– Longitud de la circunferencia: a partir del radio. Crea un archivo en HTML con un script
+que cree las variables: base, altura, lado1, lado2, lado3 y radio, con los valores que quieras,
+y llame a todas las funciones declaradas en el archivo anterior. Realiza la invocación al
+archivo en el lugar más conveniente.l>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let areaTriandulo=function (base,altura){
+            return (base*altura)/2;
+        }
+        let perimetroTrianguloEquilatero=function(lado){
+            return (lado+lado+lado);
+        }
+        let perimetroTrianguloIsosceles=function(base,lado){
+            return (Math.pow(lado,2)+base);
+        }
+        let perimetroTrianguloEscaleno=function(lado1,lado2,lado3){
+            return (lado1+lado2+lado3);
+        }
+        const areaCuadrado=new Function(lado1,lado2);{
+            return lado1*lado2;
+        }
+        const areaRectangulo=new Function(base, altura);{
+            return base*altura;
+        }
+        const areaCirculo = function (radio){
+            return Math.PI*(radio*radio);
+        }
+        const longitudCircunferencia = (radio)=>{
+            return 2*Math.PI*radio;
+        }
+        (function(){
+            alert ( "Esta funcion es autoinvocada");}());
+        
+
+        let base=prompt("Dime la base");
+        let altura=prompt("dime la altura");
+        let lado1=prompt("Dime el lado uno");
+        let lado2=prompt("Dime el lado dos");
+        let lado3=prompt("Dime el lado tres");
+        let radio=prompt("Dime el radio");
+
+        
+
+        document.write("el area del triangulo es"+ areaTriandulo(base,altura) + "<br>");
+        document.write("el perimetro del triangulo equilatero es"+ perimetroTrianguloEquilatero(lado1) + "<br>");
+        document.write("el perimetro del triangulo isosceles es"+ perimetroTrianguloIsosceles(base,lado1) + "<br>");
+        document.write("el perimetro del triangulo escaleno es"+ perimetroTrianguloEscaleno(lado1,lado2,lado3) + "<br>");
+        document.write("el area del cuadrado es"+ areaCuadrado (lado1,lado2) + "<br>");
+        document.write("el area del rectangulo es"+ areaRectangulo(base,altura) + "<br>");
+        document.write("el area del circulo es"+ areaCirculo(radio) + "<br>");
+        document.write("la longitud de la circunferencia es "+ longitudCircunferencia(radio) + "<br>");
+
+    </script>
+</body>
+</html>
