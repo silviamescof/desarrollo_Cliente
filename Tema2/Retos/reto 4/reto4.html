@@ -1,0 +1,51 @@
+<! A partir del siguiente código, sustituye las almohadillas (#) por operadores de comparación
+o lógicos para que las sentencias den verdadero o falso según se indique en cada línea.
+unction mostrarMensaje() {var a, b, c,
+d, eTexto;a = 3; b = 5; c = true; d = false; eTexto = ‘1’;alert (‘VERDADERO’ + (a+b
+# 8 && a-b # 1)); //alert (‘FALSO: ‘ + (a+b == 8 # a-b ==-2));alert (‘VERDADERO: ‘ +
+(c # d));alert (‘FALSO: ‘ + (c # d));alert (‘FALSO: ‘ + (#a));
+alert (‘FALSO: ‘ + (eTexto # 1));
+alert (‘FALSO: ‘ + (eTexto # 1 # eTexto != «Zapato»));
+alert (‘VERDADERO: ‘ + (‘Zapato’ # ‘avellano’));>
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+        function mostrarMensaje() {
+            var a, b, c,d, eTexto;
+            a = 3; 
+            b = 5;
+            c = true; 
+            d = false; 
+            eTexto = "1";
+            //verdadero
+            alert ("verdadero"+ (a+b == 8 && a-b != 1)); 
+            //falso
+            //este no tiene solucion porque los dos operando son true, tanto con and como con or 
+            alert ("FALSO: " + (a+b == 8 < a-b ==-2));
+            //verdadero
+            alert ("VERDADERO: " + (c != d));
+            //falso
+            alert ("FALSO: " + (c == d));
+            //falso
+            alert ("FALSO: " + (!a));
+            //falso
+            alert ("FALSO: "+ (eTexto != 1));
+            //falso
+            alert ("FALSO: " + (eTexto === 1 && eTexto != "Zapato"));
+            //falso
+            alert ("VERDADERO: " + ("Zapato" != "avellano"));
+
+        }
+        mostrarMensaje();
+    </script>
+</body>
+</html>
