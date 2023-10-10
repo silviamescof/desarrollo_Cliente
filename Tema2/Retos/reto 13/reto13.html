@@ -1,0 +1,35 @@
+<!Si has jugado alguna vez al trivial sabrás que, cuando un jugador consigue los 6 «quesitos»,
+debe ir al centro del tablero y adivinar al menos 4 de las 6 preguntas que tiene una de las
+tarjetas escogida al azar.
+Deberás realizar un programa que implemente esa última tarjeta de trivial de tal manera
+que:
+1. Al jugador se le presentan 6 preguntas, previo nombre de la categoría (Geografía, Arte,
+Espectáculos, Historia, Ciencias y Deportes). Estas preguntas se mostrarán continuamente
+hasta que el jugador responda a todas, hasta que gane o hasta que pierda.2. El jugador elige
+una de las preguntas y escribe la respuesta. Si acierta se suma 1 punto al marcador. Si no,
+no se suma ningún punto. En cualquier caso, la pregunta no vuelve a aparecer en la lista.3.
+Cuando el jugador ha respondido 4 preguntas bien no hace falta que le preguntemos más
+porque habrá adivinado. Si el jugador ha respondido 3 preguntas mal no hace falta que
+preguntemos más porque habrá perdido. Crea el programa de la manera más eficiente
+posible, creando todas las funciones que sean necesarias y procurando no escribir código
+javascript en el fichero html. Solo obtendrán el certificado de eficiencia aquellos sandkills
+que lo merezcan.>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="estilo.css" />
+    <title>Document</title>
+</head>
+<body>
+    <button id="geografia" class="boton">GEOGRAFIA</button>
+    <button id="arte" class="boton">ARTE</button>
+    <button id="espectaculos" class="boton">ESPECTACULOS</button>
+    <button id="historia" class="boton">HISTORIA</button>
+    <button id="ciencias" class="boton">CIENCIAS</button>
+    <button id="deportes" class="boton">DEPORTES</button>
+    <script src="reto13.js"></script>
+</body>
+</html>

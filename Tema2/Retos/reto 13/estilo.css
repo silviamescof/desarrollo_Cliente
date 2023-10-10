@@ -1,0 +1,26 @@
+.boton{
+    width: 33%;
+    padding: 10%;
+    margin-top: 15px;
+    text-align: left;
+    font: oblique bold 200% cursive;
+    background-color: color-mix(in srgb, color percentage, color percentage);
+}
+#geografia{
+    background: rgb(160, 160, 220);
+}
+#arte{
+    background: pink;
+}
+#espectaculos{
+    background: rgb(234, 234, 110);
+}
+#historia{
+    background: rgb(127, 236, 127);
+}
+#ciencias{
+    background: rgb(231, 109, 109);
+}
+#deportes{
+    background: rgb(228, 165, 47);
+}
