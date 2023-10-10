@@ -1,0 +1,111 @@
+<!Aunque aún no conocemos el funcionamiento de la sentencia «if» seguro que eres capaz
+de realizar el siguiente programa:
+Modifica el código de ute5 y crea una nueva función que se llame «perimetroTriangulo». Si
+recibe un solo parámetro, mostrará su valor e invocará a la función del perímetro del
+triángulo equilátero; si recibe dos parámetros, mostrará sus valores e invocará a la función
+del perímetro del triángulo isósceles; si recibe tres parámetros mostrará sus valores e
+invocará a la función del perímetro del triángulo escaleno.
+Crea otra función que se llame «perímetroParalelogramo». Si recibe un parámetro invocará
+a la función del perímetro del cuadrado; sino a la del rectángulo. También mostrará los
+valores recibidos.
+RETO ADICIONAL: crea una función llamada «areaPoligono». Tendrá un primer parámetro
+que indicará el número de lados del polígono, siendo 1 la circunferencia, 3 el triángulo y 4
+el rectángulo. Si el primer parámetro es 1, el segundo será el radio de la circunferencia; si
+el primero es 3, el segundo y tercero serán la base y la altura respectivamente; si el primero
+es 4, y solo hay un segundo parámetro, se trata del lado del cuadrado, pero si hay dos, será
+la base y la altura del rectángulo. En todos los casos, se llamará a la función correspondiente.
+Deja tus dudas en la sección de comentarios por si otro sandkill puede ayudarte.
+>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /** FUNCTION**/
+        const perimetroTrianguloEquilatero=function(lado){
+            return (lado+lado+lado);
+        }
+
+        /** FUNCTION**/
+        let perimetroTrianguloIsosceles=function(base,lado){
+            return (Math.pow(lado,2)+base);
+        }
+
+        /** FUNCTION**/
+        const areaCuadrado=function (lado){
+            return lado*lado;
+        }
+
+        /** FUNCTION**/
+        const areaRectangulo=function(base,altura){
+            return base*altura;
+        }
+
+        /** FUNCTION**/
+        const retoAdicional=function (selector,lado,altura){
+
+            //se invoca bien con los parametros correctos
+            //alert=(arguments.length);
+            /*se accede bien a los valores
+            
+            alert(arguments[1]);
+            alert(arguments[2]);
+*/  
+            let diferenciador=(arguments[0]);
+
+            switch(diferenciador){
+                case 1:
+                
+                    alert("el area del triangulo equilatero es"+ perimetroTrianguloEquilatero(arguments[1]) + "<br>");
+                    break;
+             
+                case 3:
+                
+                    alert("La base es "+ arguments[1]+ "La altura es "+ arguments[2]);
+                    document.write("el area del triangulo isosceles es"+ perimetroTrianguloIsosceles(arguments[1],arguments[2]) + "<br>");
+                    break;
+                
+                case 4:
+                
+                    if(arguments[2]!=null){
+                        
+                        alert("La base es "+ arguments[1]);
+                        document.write("el area del cuadrado es"+ areaCuadrado(arguments[1] )+ "<br>");
+
+                    }else {
+                        
+                        alert("La base es "+ arguments[1]+ "La altura es "+ arguments[2]);
+                        document.write("el area del rectangulo es"+ areaRectangulo(arguments[1],arguments[2]) + "<br>");
+                    }
+
+                    break;
+                
+                 default:  
+                    alert("no se que hacemos aqui o has pulsado dos, a ver si leemos");     
+            }
+        }
+
+        let selector=Number(prompt("1.- para triangulo equilatero"+"<br>"+ 
+                            "2.- para triangulo isosceles"+"<br>"+
+                            "4.- para paralelogramos"));
+        let lado=Number(prompt("dime el valor del lado si solo tiene uno, o de la base si tiene dos"));
+        let altura=Number(prompt("Dime el valor de la altura"));
+
+        /*el prompt funciona
+
+        alert(selector);
+        alert(lado);
+        alert(altura);
+        */
+
+        retoAdicional(selector,lado,altura);
+        
+
+    </script>
+</body>
+</html>
