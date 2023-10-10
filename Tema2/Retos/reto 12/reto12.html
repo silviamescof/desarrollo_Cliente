@@ -1,0 +1,58 @@
+<!Crea una función que te permita mostrar los números del 1 al 100 (por pantalla, no
+utilizando un alert) excepto los múltiplos de 3. ¿Sabrías hacerlo de dos maneras diferentes?
+Crea otra función que muestre una lista con los meses del año excepto los meses de verano.
+¿Sabrías hacerlo de dos maneras diferentes?
+¡No olvides comentar el código!
+>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            const delUnoAlClien=function(){
+                for(let i=0;i<=100;i++){
+                   if(i%3==0){
+
+                   }else{
+                    document.write("<h1>"+i+"</h1>");
+                   } 
+                }
+            }
+            const delUnoAlClien2=function(){
+                let i=0;
+                while(true){
+                    i++;
+                    if(i%3==0){
+                        continue
+                    }  
+                    if(i>100){
+                        break
+                    }
+                        document.write("<h1>"+i+"</h1>"); 
+                        
+                }
+            }
+            const verano=function(){
+                const meses=Array("enero","febrero","marzo","abril","mayo",
+                                "junio","julio","agosto","septiembre","octubre",
+                                "noviembre","diciembre");
+                let variable;
+                for(variable in meses){
+                    if(variable==5||variable==6||variable==7){
+
+                    }else{
+                    document.write("<h1>"+meses[variable]+"</h1>");
+                }
+            }
+        }
+            delUnoAlClien();
+            delUnoAlClien2();
+            verano();
+    </script>
+</body>
+</html>
