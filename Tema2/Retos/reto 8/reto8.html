@@ -1,0 +1,44 @@
+<!Diseña un pequeño juego que te permita adivinar qué tipo de malware está pensando un
+usuario a partir de 3 preguntas de sí o no, teniendo en cuenta que sólo podrás hacer UNA
+pregunta del tipo «¿Estás pensando en…?» (con respuesta SÍ o NO) antes de dar tu
+respuesta. Necesitarás un papel para diseñar el diagrama de flujo que vas a crear.
+Para solicitar al usuario una respuesta podrás hacerlo con la instrucción:
+var respuesta = prompt(«Introduzca la respuesta»);
+Estos son los datos que tienes para realizar las preguntas:
+1. Gusano: se puede borrar con antivirus y se multiplica.
+2. Bug: no se puede borrar con antivirus; se soluciona con una actualización.
+3. Troyano: se puede borrar con antivirus y no se multiplica.
+DESARROLLO WEB EN ENTORNO CLIENTE UD02. SINTAXIS DEL LENGUAJE JAVASCRIPT - RETOS
+CFGS. DESARROLLO DE APLICACIONES WEB UD01 - PÁGINA 4
+4. Spam: no se puede borrar con antivirus ni con actualizaciones del sistema.
+5. Exploit: no se puede borrar con antivirus; se soluciona con una actualización.>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const criba1=confirm("Se borra con antivirus????");
+        const criba2=confirm("se multiplica?????");
+        const criba3=confirm("se soluciona con una actualizacion????");
+
+        if(criba1==true){
+            if(criba2==true){
+                alert("gusano localizado");
+            }else{
+                alert("troyano neutralizado");
+            }
+        }else{
+            if(criba3==true){
+                alert("Es un bug o un troyano, no tengo criterios para discernir");
+            }else{
+                alert("Spam neutralizado");
+            }
+        }
+    </script>
+</body>
+</html>
