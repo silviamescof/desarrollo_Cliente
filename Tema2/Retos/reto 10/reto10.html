@@ -1,0 +1,32 @@
+<!Un equipo de baloncesto tiene una lista de jugadores. Quiere mostrar un programa que
+permita mostrar la lista de los jugadores y su dorsal, teniendo en cuenta que los dorsales
+empiezan por el número 3 y van de 3 en 3 (3, 6, 9…).
+Reto adicional: ¿Serías capaz de hacerlo de tres modos diferentes?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var jugadores=["jugador1","jugador2","jugador3"];
+
+        for(var i=0,b=3;i<jugadores.length;i++,b=b+3){
+            document.write("el "+jugadores[i]+" tiene el dorsal "+ b+ "<br>");
+            
+            }
+            var dorsal=3;
+        for(let i in jugadores){
+            
+            document.write("el "+jugadores[i]+" tiene el dorsal "+ dorsal+ "<br>"); 
+            dorsal+=3;
+        }
+
+        
+
+    </script>
+</body>
+</html>
