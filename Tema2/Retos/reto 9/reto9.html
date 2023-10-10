@@ -1,0 +1,33 @@
+<!Crea un programa que permita mostrar por pantalla las horas del día desde las 08 de la
+mañana hasta las 20:30 de la noche de 30 minutos en 30 minutos teniendo en cuenta que
+tanto horas como minutos son dos dígitos (no puede haber un 9:30, o un 14:0). Muéstralas
+en la página (no utilices alerts).
+>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const aux =function(i){
+            return i<10?"0"+i: i;
+        }
+        const reloj=[0,8,0,0];
+
+        for(var i=8;i<21;i++){
+            document.write(aux(i)+":00"+"<br>");
+            document.write(aux(i)+":30"+"<br>");
+
+            relo=reloj
+        }
+       /* const hora=reloj.toString();
+        hora=hora.replace(",","");
+        alert(hora);
+        */
+    </script>
+</body>
+</html>
