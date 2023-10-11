@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let derrotas = 0;
 
     document.getElementById ("geografia").addEventListener ("click", function () {
-        if (derrotas < 3) {
+       
             const respuesta = prompt( "¿Cuál es el pico más alto de España?");
             const respuestaLowerCase = respuesta.toLowerCase();
             if (respuestaLowerCase === "teide") {
@@ -14,11 +14,11 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("geografia").disabled = true;
             document.getElementById("geografia").style.display = "none";
             verificarVictoriaDerrota();
-        }
+        
     });
 
     document.getElementById("arte").addEventListener("click", function () {
-        if (derrotas < 3) {
+       
             const respuesta = prompt("¿el grito de.....?");
             const respuestaLowerCase = respuesta.toLowerCase();
             if (respuestaLowerCase === "munch") {
@@ -29,11 +29,11 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("arte").disabled = true;
             document.getElementById("arte").style.display = "none";
             verificarVictoriaDerrota();
-        }
+        
     });
 
     document.getElementById("ciencias").addEventListener("click", function () {
-        if (derrotas < 3) {
+       
             const respuesta = prompt("químicamente escribiendo..... agua");
             const respuestaLowerCase = respuesta.toLowerCase();
             if (respuestaLowerCase === "h2o") {
@@ -44,11 +44,11 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("ciencias").disabled = true;
             document.getElementById("ciencias").style.display = "none";
             verificarVictoriaDerrota();
-        }
+        
     });
 
     document.getElementById("deportes").addEventListener("click", function () {
-        if (derrotas < 3) {
+        
             const respuesta = prompt("apellido del futbolista argentino, apodado D10S, barrilete cósmico, pelusa, el cebollita o el mejor jugador del mundo");
             const respuestaLowerCase = respuesta.toLowerCase();
             if (respuestaLowerCase === "maradona") {
@@ -59,11 +59,11 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("deportes").disabled = true;
             document.getElementById("deportes").style.display = "none";
             verificarVictoriaDerrota();
-        }
+        
     });
 
     document.getElementById("espectaculos").addEventListener("click", function () {
-        if (derrotas < 3) {
+        
             const respuesta = prompt("circo y astro");
             const respuestaLowerCase = respuesta.toLowerCase();
             if (respuestaLowerCase === "sol") {
@@ -74,11 +74,11 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("espectaculos").disabled = true;
             document.getElementById("espectaculos").style.display = "none";
             verificarVictoriaDerrota();
-        }
+        
     });
 
     document.getElementById("historia").addEventListener("click", function () {
-        if (derrotas < 3) {
+       
             const respuesta = prompt("Apellido del primer presidente de la democracia española");
             const respuestaLowerCase = respuesta.toLowerCase();
             if (respuestaLowerCase === "suarez") {
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("historia").disabled = true;
             document.getElementById("historia").style.display = "none";
             verificarVictoriaDerrota();
-        }
+        
     });
 
     function verificarVictoriaDerrota() {

@@ -1,3 +1,15 @@
+<script>
+    /**
+     * Ejercicio 5 por Silvia Mesa Cofrades 
+     * 
+     * Realiza un programa que permita elegir al usuario un tipo de lotería del estado y genere os
+        números aleatorios en la propia página (no en un alert). Se mostrarán los siguientes tipos
+        de loterías:
+        • Lotería nacional (los ceros a la izquierda deben mostrarse).
+        • Quiniela.
+        • Primitiva (con complementario y reintegro)
+     * */
+</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,28 +19,66 @@
 </head>
 <body>
     <script>
-        let loteria=[];
+        //funcion que calcula un numero de loteria
+        let sorteoLoteria=()=>{
+            let loteria=[];
 
-        for(let i=0;i<5;i++){
-            loteria[i]=Math.floor(Math.random() * 9);
-        }
-        document.write('<h1>El numero de la loteria es </h1>');
-        for(valor in loteria)
-        {
-            document.write(loteria[valor]);
-        }
-
-        let quiniela=0;
-
-        for(let i=0;i<14;i++){
-            valor=Math.floor(Math.random() * 3) + 1;
-            if(quiniela==3){
-                document.write('<h1>El numero de la tirada '+i+' es X </h1>');  
-            }else{
-                document.write('<h1>El numero de la tirada '+i+' es '+quiniela+': </h1>');
+            for(let i=0;i<5;i++){
+                loteria[i]=Math.floor(Math.random() * 9);
             }
-            
+            document.write('<h1>El numero de la loteria es </h1>');
+            for(valor in loteria)
+            {
+                document.write(loteria[valor]);
+            }
         }
+
+        let sorteoQuiniela=()=>{
+            let quiniela=0;
+
+            for(let i=0;i<14;i++){
+                quiniela=Math.floor(Math.random() * 3) + 1;
+                if(quiniela===3){
+                    document.write('<h1>El numero de la tirada '+i+' es X </h1>');  
+                }else{
+                    document.write('<h1>El numero de la quiniela '+i+' es '+ quiniela +': </h1>');
+                }    
+            }
+        }
+        let sorteoPrimitiva=()=>{
+
+            let numeros=[];
+            let valor=Math.floor(Math.random() * 49) + 1;
+            for(let i = 0 ; i < 7 ; i++ ) {
+                while(numeros.includes(valor)===true){
+                    valor=Math.floor(Math.random() * 49) + 1;
+                }
+                numeros[i]=valor;
+            }
+
+            let reintegro=Math.floor(Math.random() * 9) + 1;
+
+            document.write('<h1>El sorteo de la primitiva tiene como numeros premiados '+numeros.toString()+' y de reintegro el  '+reintegro+': </h1>');
+        }
+
+    let opcion=prompt("Escribe el sorteo que quieres: loteria, quiniela o primitiva").toLowerCase();
+
+    if(opcion==="loteria"){
+
+        sorteoLoteria();
+
+    }else if(opcion==="quiniela"){
+
+        sorteoQuiniela();
+
+    }else if(opcion==="primitiva"){
+
+        sorteoPrimitiva();
+
+    }else{
+
+        alert("opcion no contemplada");
+    }
     </script>
 </body>
 </html>
