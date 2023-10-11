@@ -1,0 +1,75 @@
+<script>
+    /**
+     * Reto7 Tema 3 por Silvia Mesa
+     * 
+     * Realiza un archivo en js con tres funciones que te permitan realizar los siguientes formatos
+        de fecha recibiendo como parámetro la fecha en milisegundos o en números (3 parámetros)
+        -utiliza arguments para saber el número de parámetros que ha introducido el usuario-:
+        – Fecha en formato corto: 17/02/2016
+        – Fecha en formato largo: Miércoles, 17 de febrero de 2016.
+        – Fecha en formato inglés: Wednesday, February 17, 2016.
+     * */
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let imprime_formato_corto = ( argumentFecha ) => {
+            let fecha = new  Date(argumentFecha);
+            document.write("<h1>La fecha en formato corto: "+ fecha.toLocaleDateString("en-GB") +". </h1>");
+        }
+        let imprime_formato_largo=(argumentFecha)=>{
+            let fecha = new  Date(argumentFecha);
+            let option= {
+                            weekday: "long",
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                            };
+
+            document.write("<h1>La fecha en formato largo: "+ fecha.toLocaleDateString("es-DE", option)+". </h1>");
+        }
+        let imprime_formato_ingles=(argumentFecha)=>{
+            let fecha = new  Date(argumentFecha);
+            let option= {
+                            weekday: "long",
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                            };
+
+            document.write("<h1>La fecha en formato ingles: "+ fecha.toLocaleDateString("en-US", option)+". </h1>");
+        }
+        //creo la funcion sin arrow para poder acceder a Arguments.
+        let imprime_fechas=function ( milisegundos, mes , dia ){
+
+            let fecha=null;
+
+            if(arguments.length===1)
+            {
+                fecha=new Date(milisegundos);
+
+                imprime_formato_corto(fecha);
+                imprime_formato_largo(fecha);
+                imprime_formato_ingles(fecha);
+            }
+            else
+            {//no controlo errores no es el objetivo del ejercicio por ejemplo(tipo de parametros, menor numero que tres...etc)
+
+                fecha=new Date( milisegundos , mes , dia);
+                
+                imprime_formato_corto(fecha);
+                imprime_formato_largo(fecha);
+                imprime_formato_ingles(fecha);
+            }
+        }
+
+        imprime_fechas(2023, 10, 11);
+    </script>
+</body>
+</html>

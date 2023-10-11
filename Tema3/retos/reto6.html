@@ -1,0 +1,53 @@
+<script>
+    /**
+     * Reto 6. Tema 3 por Silvia Mesa
+     * 
+     * Realiza un programa que sea capaz de calcular cuántas veces cae en sábado el solsticio de
+        verano desde el año 2000 hasta el año 2100.
+
+     * */
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* funcion que calcula los sabados que son solsticio de verano desde un año de inicio 
+        hasta un año de fin, teniendo en cuenta, que el solsticio de verano es el 20/06/ de cada año,
+        y el ejercicio pide desde 2000*/
+
+        const obtenerSabados=(agnoInicio, agnoFin)=>{
+            let contador=0;
+
+            for(let i=agnoInicio;i<=agnoFin;i++){
+                let fecha=new Date(i, 5 ,20);
+                //depuracion, crea la fecha correctamente
+                //alert(fecha);
+                let diaSemana=fecha.getDay();
+                //debug, obtiene el dia de la semana bien/
+                //alert(diaSemana);
+                if(diaSemana===6){
+                    document.write("<h1>Cae en sabado la fecha"+ fecha.toDateString()+"</h1>");
+                    contador++;
+                }
+            }
+            return contador;
+        }
+        
+        let veces=obtenerSabados(2000,2100);
+        alert("Entre el 2000 y el 2100 hay " + veces+ " solsticios de verano") ;
+
+        
+
+        
+        
+
+
+
+    </script>
+</body>
+</html>
