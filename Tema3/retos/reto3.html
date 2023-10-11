@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let palabra=prompt("dime la palabra o frase");
+        let numVocales=palabra.match(/[aeiouAEIOUáéíóú]/g);
+        alert("la palabra contiene "+numVocales.length+" vocal/es.");
+    </script>
+</body>
+</html>

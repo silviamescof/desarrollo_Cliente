@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        let numero=prompt("dime el numero");
+        let base=prompt("dime la base, escribe 2 para binario, 8 para octal, 10 para decimal, y 16 para hexadecimal");
+        let numeroAentero=parseInt(numero,base);
+
+        alert("El numero en binario es "+ numeroAentero.toString(2));
+        alert("El numero en decimal es "+ numeroAentero.toString(10));
+        alert("El numero en octal es "+ numeroAentero.toString(8));
+        alert("El numero en hexadecimal es "+ numeroAentero.toString(16));
+
+    </script>
+</body>
+</html>

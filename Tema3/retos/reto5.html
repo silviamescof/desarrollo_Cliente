@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let loteria=[];
+
+        for(let i=0;i<5;i++){
+            loteria[i]=Math.floor(Math.random() * 9);
+        }
+        document.write('<h1>El numero de la loteria es </h1>');
+        for(valor in loteria)
+        {
+            document.write(loteria[valor]);
+        }
+
+        let quiniela=0;
+
+        for(let i=0;i<14;i++){
+            valor=Math.floor(Math.random() * 3) + 1;
+            if(quiniela==3){
+                document.write('<h1>El numero de la tirada '+i+' es X </h1>');  
+            }else{
+                document.write('<h1>El numero de la tirada '+i+' es '+quiniela+': </h1>');
+            }
+            
+        }
+    </script>
+</body>
+</html>

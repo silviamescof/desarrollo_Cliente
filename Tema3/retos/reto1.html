@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const nombreCompleto=prompt("dime tu nombre completo y año de nacimiento Ejem. Silvia Mesa Cofrades 1992");
+        const arrayNombres=nombreCompleto.split(" ");
+        const nombre=arrayNombres[0].toUpperCase();
+        const primerApellido=arrayNombres[1].toUpperCase();
+        const segundoApellido=arrayNombres[2].toUpperCase();
+        const fecha=arrayNombres[3].toUpperCase();
+        document.write(nombre+"<br>");
+        document.write(primerApellido+"<br>");
+        document.write(segundoApellido+"<br>");
+        document.write(fecha+"<br>");
+        const nombreUsuario=nombre.charAt(0)+primerApellido+segundoApellido.charAt(0)+fecha.charAt(fecha.length-2);
+        document.write(nombreUsuario.toLowerCase());
+
+    </script>
+</body>
+</html>
