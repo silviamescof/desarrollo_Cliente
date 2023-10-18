@@ -1,0 +1,86 @@
+<!--Necesitas un reloj con cronómetro y lo vas a desarrollar en Javascript. El reloj mostrará la
+hora, con minutos y segundos. El cronómetro, a su vez, tendrá lo siguiente:
+– Un botón para poner a 0 el contador.
+– Un botón para arrancar el cronómetro.
+– Un botón para parar el cronómetro.
+– Un botón para escribir el valor del cronómetro parado en la página (podrán
+escribirse tantos valores como se desee).
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="reto10.css">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+    //FUNCION QUE MANEJA EL RELOJ//
+    setInterval(() => {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString('it-IT');
+        document.querySelector('.reloj').textContent = timeString;
+    }, 1000);
+
+    // FUNCIONES QUE MANEJAN EL CRONOMETRO//
+    //VARIABLES//
+    let minutos = 0;
+    let segundos = 0;
+    let horas=0;
+    let intervalo;
+    //FUNCION INICIAR//
+    const iniciar=()=>{
+
+        intervalo=setInterval(() => {
+        segundos++;
+
+        if (segundos >= 60){
+            segundos = 0;
+            minutos++;
+        };
+        if(minutos>=60){
+            minutos=0;
+            horas++;
+        }
+      
+        const timeString = `${horas<10 ? '0' : ''}:${minutos < 10 ? '0' : ''}${minutos} :${segundos < 10 ? '0' : ''}${segundos}`;
+        document.querySelector('.crono').textContent = timeString;
+
+        }, 15);
+    };
+    //FUNCION RECARGAR//
+    const recargar=()=>{
+        minutos=0;
+        segundos=0;
+        
+    };
+    //FUNCION PARAR//
+    const parar=()=>{
+        document.querySelector('.crono').textContent = "00:00:00";
+        clearInterval(intervalo);
+        minutos=0;
+        segundos=0;
+
+    }
+    //FUNCION PAUSAR//
+    const pausar=()=>{
+        
+        clearInterval(intervalo);
+        
+    }
+
+    </script>
+
+    <h1>RELOJ</h1>
+    <span class="reloj"></span>
+    <h1>CRONOMETRO</h1>
+    <span class="crono">00:00:00</span><br>
+    <button onclick="recargar()" id="reset">RESET</button>
+    <button onclick="iniciar()" id="iniciar">INICIAR</button>
+    <button onclick="parar()" id="stop">STOP</button>
+    <button onclick="pausar()" id="pause">PAUSA</button>
+
+    
+</body>
+</html>
