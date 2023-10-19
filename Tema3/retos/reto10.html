@@ -44,7 +44,7 @@ escribirse tantos valores como se desee).
             horas++;
         }
       
-        const timeString = `${horas<10 ? '0' : ''}:${minutos < 10 ? '0' : ''}${minutos} :${segundos < 10 ? '0' : ''}${segundos}`;
+        const timeString = `${horas<10 ? '0' : ''}${horas}:${minutos < 10 ? '0' : ''}${minutos} :${segundos < 10 ? '0' : ''}${segundos}`;
         document.querySelector('.crono').textContent = timeString;
 
         }, 15);
@@ -67,6 +67,7 @@ escribirse tantos valores como se desee).
     const pausar=()=>{
         
         clearInterval(intervalo);
+        document.getElementById("marks").innerHTML=`Tu marca ha sido:  ${horas<10 ? '0' : ''}${horas}:${minutos < 10 ? '0' : ''}${minutos} :${segundos < 10 ? '0' : ''}${segundos}`;
         
     }
 
@@ -80,6 +81,7 @@ escribirse tantos valores como se desee).
     <button onclick="iniciar()" id="iniciar">INICIAR</button>
     <button onclick="parar()" id="stop">STOP</button>
     <button onclick="pausar()" id="pause">PAUSA</button>
+    <div id="marks"></div>
 
     
 </body>
