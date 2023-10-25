@@ -28,19 +28,20 @@ const mostrar=(sandkill)=>{
 const Sandkill1={
     nombre:"Silvia",
     edad:32,
-    especialidad:"programadora",  
+    especialidad:"programadora",
+    nacionalidad:"checa"  
 };
 const Sandkill2=new Object();
 Sandkill2.nombre= "Francisco";
 Sandkill2.edad=25;
 Sandkill2.especialidad= "developer";
+Sandkill2.lenguajeFavorito="Javascript";
 
 class Sandkill{
     constructor(nombre,edad,especialidad){
         this.nombre=nombre
         this.edad=edad
-        this.especialidad=especialidad
-    }
+    };
 };
 
 const Sandkill3=new Sandkill("angel",23,"backend");
