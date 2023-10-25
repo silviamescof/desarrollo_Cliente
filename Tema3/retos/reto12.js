@@ -25,7 +25,7 @@ la cadena recibida es Sistemas (1), Web (2) o Multiplataforma(3).
 • setCompanero: recibe un objeto de tipo Sandkill y lo almacena. 
  */
 
-class Sandkill{
+export default class Sandkill{
     constructor(nombre,edad,especialidad,companero){
         this.nombre=nombre;
         this.edad=edad;
