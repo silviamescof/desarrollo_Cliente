@@ -1,4 +1,5 @@
 import { Company } from "./company";
+
 export class Installation{
     constructor(exterior,interior,enchufes,cantidad,presupuesto,company){
         this.exterior=exterior;
@@ -10,13 +11,13 @@ export class Installation{
     };
     /////////setters/////////
 
-    set company(company){
+    set setCompany(company){
         this.company=company instanceof Company?company:null;
     };
     //////////getters/////////
 
-    get company(){
-        
+    get getCompany(){
+
         return this.company;
     };
     /////////toString/////////

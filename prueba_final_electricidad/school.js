@@ -1,4 +1,5 @@
 import { Installation } from "./installation";
+import { Company } from "./company";
 
 export class School{
     constructor(nombre,localidad,responsable,telefono,direccion,instalacion){
@@ -13,13 +14,13 @@ export class School{
 
     ///////////setters//////////
 
-    set instalacion(instalacion){
+    set setInstalacion(instalacion){
         this.instalacion=instalacion instanceof Installation ? instalacion : null;
     };
 
     ///////////getters///////////
 
-    get instalacion(){
+    get getInstalacion(){
         return this.instalacion;
     };
 
