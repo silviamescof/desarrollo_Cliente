@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="id">Que escuela quieres ver?</label>
+        <input type="text" id="id" name="id"><br><br>
+        <input type="submit" value="Consultar datos">
+    </form>
+    <p id="respuesta"></p>
+    <button id="volver">Volver a inicio</button>
+    <script>
+        document.querySelector("form").addEventListener('submit',e=>{
+        e.preventDefault();
+        const nameschool=Object.fromEntries(new FormData(e.target));
+       
+        alert(JSON.stringify(nameschool));
+
+        document.getElementById("respuesta").innerHTML=nameschool;
+        
+    });
+        document.getElementById("volver").addEventListener("click",()=>{
+            window.location.href="/index.html";
+        })
+    </script>
+</body>
+</html>

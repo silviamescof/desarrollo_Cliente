@@ -28,7 +28,7 @@
 
     <script>
         
-          // Obtén la cadena de consulta (query string) de la URL
+          // Obtiene la cadena de consulta (query string) de la URL
           const queryString = window.location.search;
 
             // Crea un objeto URLSearchParams a partir de la cadena de consulta
@@ -36,8 +36,9 @@
 
             // Recupera el valor del parámetro "school"
             const schoolParam = params.get("school");
+            //linea de depuracion
             console.log(schoolParam);
-
+            //elimina el parametro de los Arguments porque ya ha sido leido
             params.delete("school");
 
         document.querySelector("form").addEventListener('submit',e=>{

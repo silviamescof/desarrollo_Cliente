@@ -2,13 +2,11 @@ import { Installation } from "./installation";
 import { Company } from "./company";
 import { School } from "./school";
 
+this.schools=[];
 
-class Launcher{
-    constructor(){
-       this.schools=[];
-    }
 
-   static addSchool(school){
+
+   const addSchool=(school)=>{
         if(school instanceof School){
             this.schools.push(school);
             console.log("escuela añadida");
@@ -17,13 +15,13 @@ class Launcher{
         };
         
     };
-    static deleteSchool(school){
+    const deleteSchool=(school)=>{
         let posicion=this.schools.indexOf(school);
         if (posicion !== -1) {
             this.schools.splice(indice, 1); // Elimina un elemento en el índice encontrado
           }    
-    }
-    static modifySchool(parametro, valor,id){
+    };
+  const modifySchool=(parametro, valor,id)=>{
         switch(param){
             case 1:
                 //set nombre de la escuela
@@ -39,6 +37,8 @@ class Launcher{
                 break;
             case 6:
                 break;
-        }
-    }
-};
+        };
+    };
+
+    addSchool(new School("ies jandula","andujar","la señora directora","953507486","carretera de los villares"));
+    console.log(schools);
