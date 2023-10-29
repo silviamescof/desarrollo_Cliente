@@ -1,3 +1,4 @@
+//clase compania
 export class Company{
 
     constructor(nombre,responsable,cif,telefono,direccion){

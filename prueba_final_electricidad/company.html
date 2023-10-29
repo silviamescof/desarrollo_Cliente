@@ -33,18 +33,18 @@
         const params = new URLSearchParams(queryString);
 
             // Recupera el valor del parámetro "school"
-        const schoolParam = params.get("school");
-        const instalacionParam = params.get("instalacion");
+        const schoolParam = params.get("school");//elemento escuela
+        const instalacionParam = params.get("instalacion");//asigna instalacion
 
         params.delete("school","instalacion");
-
+            //crea el objeto y lo inserta 
         document.querySelector("form").addEventListener('submit',e=>{
         e.preventDefault();
         const company=Object.fromEntries(new FormData(e.target));
         
-        alert(JSON.stringify(company));
+        alert(JSON.stringify(company));//aviso de insertado correctamente
 
-        window.location.href="/index.html";
+        window.location.href="/index.html";//vuelve a inicio
             });
             
         

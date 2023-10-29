@@ -14,14 +14,14 @@
     </form>
 
     <script>
-       
+       //accion de eliminar cuando se pulse el boton
         document.querySelector("form").addEventListener('submit',e=>{
         e.preventDefault();
-        const school=Object.fromEntries(new FormData(e.target));
+        const school=Object.fromEntries(new FormData(e.target));//busca el objeto solicitado y lo elimina
 
        
-        alert(JSON.stringify(school));
-        window.location.href="/index.html";
+        alert(JSON.stringify(school));//aviso de eliminado
+        window.location.href="/index.html";//vuelve a inicio
     });
         
     </script>

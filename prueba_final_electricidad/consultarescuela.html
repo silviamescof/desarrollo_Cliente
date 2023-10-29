@@ -14,15 +14,17 @@
     <p id="respuesta"></p>
     <button id="volver">Volver a inicio</button>
     <script>
+        //buscar elemento, ejecuta la función cualdo se pulse el botón
         document.querySelector("form").addEventListener('submit',e=>{
         e.preventDefault();
-        const nameschool=Object.fromEntries(new FormData(e.target));
+        const nameschool=Object.fromEntries(new FormData(e.target));//
        
-        alert(JSON.stringify(nameschool));
+        alert(JSON.stringify(nameschool));//muestra un alert con el resultado
 
-        document.getElementById("respuesta").innerHTML=nameschool;
+        document.getElementById("respuesta").innerHTML=nameschool;//imprime la respuesta de la consulta
         
     });
+    //boton de volver al inicio
         document.getElementById("volver").addEventListener("click",()=>{
             window.location.href="/index.html";
         })

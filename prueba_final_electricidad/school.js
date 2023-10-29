@@ -1,6 +1,7 @@
-import { Installation } from "./installation";
+import { Installation } from "./installation";//inportar objetos instalacion y compania
 import { Company } from "./company";
 
+//clase escuela
 export class School{
     constructor(nombre,localidad,responsable,telefono,direccion,instalacion){
         this.nombre=nombre;

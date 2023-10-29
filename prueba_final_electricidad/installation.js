@@ -1,5 +1,6 @@
-import { Company } from "./company";
+import { Company } from "./company";//importar datos de la clase company
 
+//clase installlation
 export class Installation{
     constructor(exterior,interior,enchufes,cantidad,presupuesto,company){
         this.exterior=exterior;
