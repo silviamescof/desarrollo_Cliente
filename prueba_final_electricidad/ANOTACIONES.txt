@@ -1,2 +1,2 @@
-0. Hacer Diagrama de clases del programa, para saber donde va cada cosa. 								0---POR COMPLETAR
+0. Hacer Diagrama de clases del programa, para saber donde va cada cosa. 								0---OK
 1. ¿Documento que arranca el programa? ¿Index.html? - Si es ese documento, el enlace lleva directamente a un JS. Eso no funciona 	1---REVISAR
