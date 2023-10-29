@@ -9,41 +9,91 @@ this.schools=[];
 
 
     //metodo para aniadir escuela
-   const addSchool=(school)=>{
-        if(school instanceof School){
-            this.schools.push(school);
-            console.log("escuela añadida");
-        }else{
-            this.schools.push(null);
-        };
+   const addSchool=(nombre, localidad,responsable, telefono,direccion,exterior,interior,enchufes,cantidad,presupuesto,nomcia,responcia,cifcia,telecia,direccioncia )=>{
+       schools.push(new School(nombre,localidad,responsable,telefono,direccion,
+                    new Installation(exterior,interior,enchufes,cantidad,presupuesto,
+                    new Company(nomcia,responcia,cifcia,telecia,direccioncia))));
         
     };
     //metodo para eliminar escuela
-    const deleteSchool=(school)=>{
-        let posicion=this.schools.indexOf(school);
+    const deleteSchool=(nombre)=>{
+        let posicion=this.schools.indexOf(nombre);
         if (posicion !== -1) {
             this.schools.splice(indice, 1); // Elimina un elemento en el índice encontrado
-          }    
+          };    
     };
     //metodo para modificar escuela
   const modifySchool=(parametro, valor,id)=>{
-        switch(param){
+
+        let posicion=this.schools.indexOf(id);
+        switch(parametro){
             case 1:
-                //set nombre de la escuela
+                this.schools[posicion].setNombre(valor);
                 break;
             case 2:
-                //set 
+                this.schools[posicion].setLocalidad(valor);
                 break;
             case 3:
+                this.schools[posicion].setResponsable(valor);
                 break;
             case 4:
+                this.schools[posicion].setTelefono(valor);
                 break;
             case 5:
+                this.schools[posicion].setDireccion(valor);
                 break;
-            case 6:
-                break;
+            default:
+                console.log("error inesperado");
         };
     };
-    //aniade escuela
-    addSchool(new School("ies jandula","andujar","la señora directora","953507486","carretera de los villares"));
-    console.log(schools);//imprime la escuela
+    const consultar=(nombre)=>{
+        let posicion=this.schools.indexOf(nombre);
+        console.log(this.schools[posicion]);
+        return this.schools[posicion];
+    }
+    const modifyInstallation=(parametro, valor,id)=>{
+
+        let posicion=this.schools.indexOf(id);
+        switch(parametro){
+            case 1:
+                this.schools[posicion].instalacion.setExterior(valor);
+                break;
+            case 2:
+                this.schools[posicion].instalacion.setInterior(valor);
+                break;
+            case 3:
+                this.schools[posicion].instalacion.setEnchufes(valor);
+                break;
+            case 4:
+                this.schools[posicion].instalacion.setCantidad(valor);
+                break;
+            case 5:
+                this.schools[posicion].instalacion.setPresupuesto(valor);
+                break;
+            default:
+                console.log("error inesperado");
+        };
+    };
+    const modifyCompany=(parametro, valor,id)=>{
+
+        let posicion=this.schools.indexOf(id);
+        switch(parametro){
+            case 1:
+                this.schools[posicion].instalacion.company.setNombre(valor);
+                break;
+            case 2:
+                this.schools[posicion].instalacion.company.setResponsable(valor);
+                break;
+            case 3:
+                this.schools[posicion].instalacion.company.setCif(valor);
+                break;
+            case 4:
+                this.schools[posicion].instalacion.company.setTelefono(valor);
+                break;
+            case 5:
+                this.schools[posicion].instalacion.company.setDireccion(valor);
+                break;
+            default:
+                console.log("error inesperado");
+        };
+    };

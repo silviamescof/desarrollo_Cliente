@@ -16,53 +16,53 @@ export class School{
 
     ///////////setters//////////
 
-    set setNombre(nombre){
+    setNombre(nombre){
         this.nombre=nombre;
     };
 
-    set setLocalidad(localidad){
+    setLocalidad(localidad){
         this.localidad=localidad;
     };
 
-    set setResponsable(responsable){
+    setResponsable(responsable){
         this.responsable=responsable;
     };
 
-    set setTelefono(telefono){
+    setTelefono(telefono){
         this.telefono=telefono;
     };
 
-    set setDireccion(direccion){
+    setDireccion(direccion){
         this.direccion=direccion;
     };
 
-    set setInstalacion(instalacion){
+    setInstalacion(instalacion){
         this.instalacion=instalacion instanceof Installation ? instalacion : null;
     };
     
     ///////////getters///////////
 
-    get getInstalacion(){
+    getInstalacion(){
         return this.instalacion;
     };
 
-    get getNombre(){
+    getNombre(){
         return this.nombre;
     };
 
-    get getLocalidad(){
+    getLocalidad(){
         return this.localidad;
     };
 
-    get getResponsable(){
+    getResponsable(){
         return this.responsable;
     };
 
-    get getTelefono(){
+    getTelefono(){
         return this.telefono;
     };
 
-    get getDireccion(){
+    getDireccion(){
         return this.direccion;
     };
 

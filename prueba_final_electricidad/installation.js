@@ -12,53 +12,53 @@ export class Installation{
     };
     /////////setters/////////
 
-    set setCompany(company){
+    setCompany(company){
         this.company=company instanceof Company?company:null;
     };
 
-    set setExterior(exterior){
+    setExterior(exterior){
         this.exterior=exterior;
     };
 
-    set setInterior(interior){
+    setInterior(interior){
         this.interior=interior;
     };
 
-    set setEnchufes(enchufes){
+    setEnchufes(enchufes){
         this.enchufes=enchufes;
     };
 
-    set setCantidad(cantidad){
+    setCantidad(cantidad){
         this.cantidad=cantidad;
     };
 
-    set setPresupuesto(presupuesto){
+    setPresupuesto(presupuesto){
         this.presupuesto=presupuesto;
     };
     
     //////////getters/////////
 
-    get getCompany(){
+    getCompany(){
         return this.company;
     };
 
-    get getExterior(){
+    getExterior(){
         return this.exterior;
     };
 
-    get getInterior(){
+    getInterior(){
         return this.interior;
     };
 
-    get getEnchufes(){
+    getEnchufes(){
         return this.enchufes;
     };
 
-    get getCantidad(){
+    getCantidad(){
         return this.cantidad;
     };
 
-    get getPresupuesto(){
+    getPresupuesto(){
         return this.presupuesto;
     };
     /////////toString/////////
