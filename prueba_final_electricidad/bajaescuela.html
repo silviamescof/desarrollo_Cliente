@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Introduce el nombre de la escuela a eliminar</h1>
+    <form id="bajaescuela">
+        <label for="nombre">Nombre de la Escuela:</label>
+        <input type="text" id="nombreaeliminar" name="nombre" required>
+        <input id="submit" type="submit" value="Eliminar Escuela">
+    </form>
+
+    <script>
+       
+        document.querySelector("form").addEventListener('submit',e=>{
+        e.preventDefault();
+        const school=Object.fromEntries(new FormData(e.target));
+
+       
+        alert(JSON.stringify(school));
+        window.location.href="/index.html";
+    });
+        
+    </script>
+</body>
+</html>

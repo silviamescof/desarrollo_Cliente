@@ -21,10 +21,18 @@
         <label for="direccion">Dirección:</label>
         <input type="text" id="direccion" name="direccion" required><br><br>
 
-        <input type="submit" value="Crear Escuela">
+        <input id="submit" type="submit" value="Crear Escuela">
     </form>
 
     <script>
+       
+        document.querySelector("form").addEventListener('submit',e=>{
+        e.preventDefault();
+        const school=Object.fromEntries(new FormData(e.target));
+       
+        alert(JSON.stringify(school));
+        window.location.href="/installation.html?school="+school;
+    });
         
     </script>
 </body>

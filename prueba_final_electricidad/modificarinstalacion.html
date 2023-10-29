@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Formulario de Modificacion Instalación</h1>
+    <form id="instalacionModify">
+        <label for="atributo">Que parte de la instalacion quieres modificar?</label><br><br>
+        <input type="radio" id="atributo" name="atributo" value="exterior" >exterior<br><br>
+        <input type="radio" id="atributo" name="atributo" value="interior" >interior<br><br>
+        <input type="radio" id="atributo" name="atributo" value="enchufes" >enchufes<br><br>
+        <input type="radio" id="atributo" name="atributo" value="cantidad" >cantidad<br><br>
+        <input type="radio" id="atributo" name="atributo" value="presupuesto" >presupuesto<br><br>
+        
+        <label for="id">De que escuela lo quieres modificar?</label>
+        <input type="text" id="id" name="id"><br><br>
+
+        <label for="value">Que valor le quieres dar?</label>
+        <input type="text" id="value" name="value"><br><br>
+
+        <input id="submit" type="submit" value="Modificar Instalación">
+
+    </form>
+    <script>
+        document.querySelector("form").addEventListener('submit',e=>{
+        e.preventDefault();
+        const instalacion=Object.fromEntries(new FormData(e.target));
+       
+        alert(JSON.stringify(instalacion));
+        window.location.href="/index.html";
+    });
+    </script>
+</body>
+</html>

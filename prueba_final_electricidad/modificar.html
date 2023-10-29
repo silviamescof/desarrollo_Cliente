@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Formulario de Modificacion Escuela</h1>
+    <form id="schoolModify">
+        <label for="atributo">Que parte de la ecuela quieres modificar?</label><br><br>
+        <input type="radio" id="atributo" name="atributo" value="name" >Name<br><br>
+        <input type="radio" id="atributo" name="atributo" value="Localidad" >Localidad<br><br>
+        <input type="radio" id="atributo" name="atributo" value="Responsable" >Responsable<br><br>
+        <input type="radio" id="atributo" name="atributo" value="Telefono" >Telefono<br><br>
+        <input type="radio" id="atributo" name="atributo" value="Direccion" >Direccion<br><br>
+        
+        <label for="id">De que escuela lo quieres modificar?</label>
+        <input type="text" id="id" name="id"><br><br>
+
+        <label for="value">Que valor le quieres dar?</label>
+        <input type="text" id="value" name="value"><br><br>
+
+        <input id="submit" type="submit" value="Modificar Escuela">
+
+    </form>
+    <script>
+        document.querySelector("form").addEventListener('submit',e=>{
+        e.preventDefault();
+        const school=Object.fromEntries(new FormData(e.target));
+       
+        alert(JSON.stringify(school));
+        window.location.href="/index.html";
+    });
+    </script>
+</body>
+</html>

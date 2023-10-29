@@ -33,22 +33,27 @@
     </form>
 
     <script>
-        document.getElementById("installationForm").addEventListener("submit", function(event) {
-            event.preventDefault();
+        
+          // Obtén la cadena de consulta (query string) de la URL
+          const queryString = window.location.search;
 
-            const exterior = document.getElementById("exterior").value;
-            const interior = document.getElementById("interior").value;
-            const enchufes = document.getElementById("enchufes").value;
-            const cantidad = parseInt(document.getElementById("cantidad").value);
-            const presupuesto = document.getElementById("presupuesto").value;
-            const company = document.getElementById("company").value;
+            // Crea un objeto URLSearchParams a partir de la cadena de consulta
+            const params = new URLSearchParams(queryString);
 
-            // Crea una instancia de la clase Installation con los datos del formulario
-            const nuevaInstalacion = new Installation(exterior, interior, enchufes, cantidad, presupuesto, company);
+            // Recupera el valor del parámetro "school"
+            const schoolParam = params.get("school");
+            console.log(schoolParam);
 
-            // Aquí puedes hacer algo con la instancia de la instalación, como enviarla a un servidor o mostrarla en la página.
-            console.log("Instalación creada:", nuevaInstalación);
-        });
+            params.delete("school");
+
+        document.querySelector("form").addEventListener('submit',e=>{
+        e.preventDefault();
+        const installation=Object.fromEntries(new FormData(e.target));
+       
+        alert(JSON.stringify(installation));
+        window.location.href="/company.html?school"+schoolParam+"&instalacion="+installation;
+    });
+        
     </script>
 </body>
 </html>

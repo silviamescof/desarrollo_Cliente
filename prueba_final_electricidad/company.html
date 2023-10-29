@@ -25,5 +25,29 @@
 
         <input type="submit" value="Crear Compañía">
     </form>
+    <script>
+        
+        const queryString = window.location.search;
+
+            // Crea un objeto URLSearchParams a partir de la cadena de consulta
+        const params = new URLSearchParams(queryString);
+
+            // Recupera el valor del parámetro "school"
+        const schoolParam = params.get("school");
+        const instalacionParam = params.get("instalacion");
+
+        params.delete("school","instalacion");
+
+        document.querySelector("form").addEventListener('submit',e=>{
+        e.preventDefault();
+        const company=Object.fromEntries(new FormData(e.target));
+        
+        alert(JSON.stringify(company));
+
+        window.location.href="/index.html";
+            });
+            
+        
+    </script>
 </body>
 </html>

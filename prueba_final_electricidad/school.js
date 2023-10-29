@@ -11,6 +11,7 @@ export class School{
         this.instalacion=instalacion instanceof Installation ? instalacion:null;
 
     };
+    c
 
     ///////////setters//////////
 
