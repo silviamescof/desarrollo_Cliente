@@ -27,19 +27,19 @@ this.schools=[];
 
         let posicion=this.schools.indexOf(id);
         switch(parametro){
-            case 1:
+            case "name":
                 this.schools[posicion].setNombre(valor);
                 break;
-            case 2:
+            case "localidad":
                 this.schools[posicion].setLocalidad(valor);
                 break;
-            case 3:
+            case "responsable":
                 this.schools[posicion].setResponsable(valor);
                 break;
-            case 4:
+            case "telefono":
                 this.schools[posicion].setTelefono(valor);
                 break;
-            case 5:
+            case "direccion":
                 this.schools[posicion].setDireccion(valor);
                 break;
             default:
@@ -55,19 +55,19 @@ this.schools=[];
 
         let posicion=this.schools.indexOf(id);
         switch(parametro){
-            case 1:
+            case "exterior":
                 this.schools[posicion].instalacion.setExterior(valor);
                 break;
-            case 2:
+            case "interior":
                 this.schools[posicion].instalacion.setInterior(valor);
                 break;
-            case 3:
+            case "enchufes":
                 this.schools[posicion].instalacion.setEnchufes(valor);
                 break;
-            case 4:
+            case "cantidad":
                 this.schools[posicion].instalacion.setCantidad(valor);
                 break;
-            case 5:
+            case "presupuesto":
                 this.schools[posicion].instalacion.setPresupuesto(valor);
                 break;
             default:
@@ -78,19 +78,19 @@ this.schools=[];
 
         let posicion=this.schools.indexOf(id);
         switch(parametro){
-            case 1:
+            case "nombre":
                 this.schools[posicion].instalacion.company.setNombre(valor);
                 break;
-            case 2:
+            case "responsable":
                 this.schools[posicion].instalacion.company.setResponsable(valor);
                 break;
-            case 3:
+            case "cif":
                 this.schools[posicion].instalacion.company.setCif(valor);
                 break;
-            case 4:
+            case "telefono":
                 this.schools[posicion].instalacion.company.setTelefono(valor);
                 break;
-            case 5:
+            case "direccion":
                 this.schools[posicion].instalacion.company.setDireccion(valor);
                 break;
             default:
