@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * Ejercicio2.html
+         * @author Silvia Mesa Cofrades
+         * 
+         * Realiza un programa que pasados 20 segundos, nos muestre una sola vez la fecha actual del
+         *  sistema.
+         * */
+        //this function show to windows the system hour for each 20 seconds.
+         let interval=setInterval(()=>{
+            let date=new Date().toLocaleString("es-ES");
+            alert(date);
+            clearInterval(interval);
+         },20000);
+
+    </script>
+</body>
+</html>

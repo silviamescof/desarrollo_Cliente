@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+ * Ejercicio1.js 
+ * @author Silvia Mesa 
+ * 
+ * 1. ACTIVIDAD 1
+Realiza un programa que cada 20 segundos (mediante setInterval) solicite un DNI hasta que
+alguien le escriba la cadena “-1”.
+En ese momento, el programa debe mostrar seguidas las letras de todos los DNIs
+introducidos.
+Aquí un enlace para saber como calcular la letra de DNI:
+https://es.wikipedia.org/wiki/N%C3%BAmero_de_identificaci%C3%B3n_fiscal
+
+ */
+//create an array whith letters, and rest is equals to position/////
+let letters=["T","R","W","A","G","M","Y","F","P","D","X","B","N","J","Z","S","Q","V","H","L","C","K","E"];
+//create an array for includes dnis whith letters.
+let dnis=[];
+// this is a function that execute for each 20 seconds, finally whith user includes numer -1.
+let interval=setInterval(()=>{
+
+    let dni=prompt("dme tu dni sin letra");
+    //condition that do exit to the interval
+    if(dni==-1){
+        console.log(dnis);
+        clearInterval(interval);
+    //consition that execute to infinite
+    }else{
+        let letter=dni%23;
+        let dniComplet=dni+letters[letter];
+        dnis.push(dniComplet);
+    };
+},20000);
+
+
+    </script>
+    
+</body>
+</html>

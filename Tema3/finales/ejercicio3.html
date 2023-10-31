@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * Ejercicio3.html
+         * 
+         * @author Silvia Mesa
+         * 
+         * Realiza un programa que pregunte una letra de la A a la Z. Tras ello el programa indicará
+          *  cuántos DNIs de 3 cifras (del 001 al 999) tienen esa letra y tras ello te mostrará “de golpe”
+          *  el listado de todos los DNIs que tienen esa letra.
+         * */
+
+         //create an array whith letters, and rest is equals to position/////
+        let letters=["T","R","W","A","G","M","Y","F","P","D","X","B","N","J","Z","S","Q","V","H","L","C","K","E"];
+
+        let letter=prompt("said to me an letter, is invalid: i , ñ , o, u");
+        let dnis=[];
+        let rest=letters.indexOf(letter);
+
+            for(let i=1;i<999;i++){
+                if(i%23==rest){
+                    dnis.push(i);
+                }
+            }
+            document.write(`The letter ${letter} have ${dnis.length} asociates: DNIs:\n${dnis}`);
+    </script>
+</body>
+</html>
