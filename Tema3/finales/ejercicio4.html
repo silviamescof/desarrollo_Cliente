@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--Realiza un programa que calcule cuántos números son a la vez primos y palíndromos desde
+el 1 hasta 100000. Debe guardar todos ellos en un array y al finalizar el proceso imprimir
+dicho array.
+Definición de número primo:
+https://es.wikipedia.org/wiki/N%C3%BAmero_primo
+Definición de palindromo:
+https://es.wikipedia.org/wiki/Pal%C3%ADndromo
+DESARROLLO WEB EN ENTORNO CLIENTE UD03. OBJETOS PREDEFINIDOS - ACTIVIDADES
+CFGS. DESARROLLO DE APLICACIONES WEB UD01 - PÁGINA 2
+5. ACTIVIDAD 5
+Realiza un programa que reciba una cadena co-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="parrafo"></p>
+    <script>
+
+    const encontrarDuplicados=(array)=>{
+        return array.filter((elemento, indice) => array.indexOf(elemento) !== indice);
+    };
+        let primos=[];
+        let palíndromos=[];
+        let todos=[];
+        let primosYpalindromos=[];
+
+        //loop for view all number.//
+
+        for(let i=1;i<100;i++){
+            //for know if, i is palindromo///
+            let primo=true;
+
+                if(i<10){
+                    palíndromos.push(i);
+                };
+                if(i>=10 && i<100){
+                    if(i/10==i%10){
+                        palíndromos.push(i);
+                    };
+                }else if(i>100 && i<1000){
+                    if(i/10==i%10){
+                        palíndromos.push(i);
+                    };
+                }else if(i>1000 && 10000){
+                        palíndromos.push(i);
+                };
+
+            ////// for know i is primo///
+
+                for(let x=2;x<i;x++){
+                    
+                    if(i%x==0){
+                        primo=false;
+                    };
+                };
+                if(primo){
+                    primos.push(i);
+                };
+            };
+
+            todos.concat(primos,palíndromos);
+            primosYpalindromos=encontrarDuplicados(todos);
+
+            primosYpalindromos.forEach(element => {
+                document.getElementById("parrafo").innerHTML+="Son palindromos: "+element;
+            });
+    </script>
+</body>
+</html>
