@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<!--3. ACTIVIDAD 3
+Vamos a gestionar una lista de países haciendo uso de Arrays. Para ello necesitarás crear un
+archivo paises.js que incluya las siguientes funciones:
+▪ Mostrar el número de elementos del array.
+▪ Mostrar todos los elementos del array.
+▪ Muestra los elementos del array en sentido inverso.
+DESARROLLO WEB EN ENTORNO CLIENTE UD03. ACTIVIDADES REPASO EXÁMEN
+CFGS. DESARROLLO DE APLICACIONES WEB UD01 - PÁGINA 2
+▪ Muestra los elementos del array ordenados alfabéticamente (sin ordenar el
+array original).
+▪ Añadir un elemento al principio del array.
+▪ Añadir un elemento al final del array.
+▪ Borrar un elemento al principio del array (y decir cuál se ha borrado).
+▪ Borrar un elemento al final del array (y decir cuál se ha borrado).
+▪ Muestra el elemento que se encuentra en una posición que el usuario indica.
+▪ Muestra la posición en la que se encuentra un elemento que le indica el
+usuario.
+▪ Muestra los elementos que se encuentran en un intervalo que el usuario
+indica.
+Ten en cuenta que el array será una variable global y que se pasará por parámetro en todas
+las funciones.
+Cuando el usuario cargue la página, se cargará un prompt donde se mostrarán (en el
+prompt, no en la página) las opciones:
+▪ Mostrar número de países.
+▪ Mostrar listado de países (y le preguntará si quiere mostrarlos en el orden
+que se encuentran en el array, del revés u ordenados alfabéticamente).
+▪ Mostrar un intervalo de países (y le pedirá que introduzca el intervalo en
+formato inicio-fin; luego deberás extraer el valor inicio y fin).
+▪ Añadir un país (y le preguntará si quiere añadir al principio o al final).
+▪ Borrar un país (y le preguntará si quiere borrar al principio o al final).
+▪ Consultar un país (y le preguntará si quiere consultar por posición o por
+nombre).
+▪ Todas las operaciones que se realicen se irán mostrando en la página con su
+título.-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+/**notas de mejora: se podria limpiar la pantalla para que no se vayan acumulando los resultados uno
+debajo del otro, usando innerHTML para sobreescribir el contenido del mismo elemento*/
+
+        //////////////FUNCIONES////////////////
+        
+        const mostrarOrdenPredefinidoLos=(paises)=>{
+            let copiaPaises=[...paises];
+            document.write('<p id="parrafo">Paises en orden natural: </p>')
+            copiaPaises.forEach(element => {
+                document.write("\n<p>-"+element+".</p>\n");
+            });
+        };
+        const mostrarOrdenInversoLos=(paises)=>{
+            let copiaPaises=[...paises];;
+            copiaPaises.reverse();
+            document.write("Paises en orden inverso: \n")
+            copiaPaises.forEach(element => {
+                document.write("\n<p>-"+element+".</p>\n");
+            });
+        };
+        const mostrarOrdenAlfabeticoLos=(paises)=>{
+            let copiaPaises=[...paises];;
+            copiaPaises.sort((a,b)=>{a.localeCompare(b)});
+            document.write("Paises en orden alfabetico: \n")
+            copiaPaises.forEach(element => {
+                document.write("\n<p>-"+element+".</p>\n");
+            });
+        };
+        const mostrarIntervalo=(desde,hasta,dedonde)=>{
+            let copiaPaises=[...dedonde];
+            let intervalo=copiaPaises.slice(desde,hasta);
+            document.write("Paises en ese rango: \n")
+            intervalo.forEach(element => {
+                document.write("\n<p>-"+element+".</p>\n");
+            });
+        }
+        const insertarPais=(opcion,pais,paises)=>{
+            switch(opcion){
+                case "1":
+                    paises.unshift(pais);
+                    break;
+                case "2":
+                    paises.push(pais);
+                    break;
+            };
+            
+        };
+        const eliminarPais=(opcion,paises)=>{
+            switch(opcion){
+                case "1":
+                    let pais=paises.shift();
+                    document.write("Pais eliminado: "+pais);
+                    break;
+                case "2":
+                    let paiss=paises.pop();
+                    document.write("Pais eliminado: "+paiss);
+                    break;
+            };
+        };
+        const buscarPaisNombre=(nombre,paises)=>{
+            let posicion=paises.indexOf(nombre);
+            document.write('<p>Hemos encontrado el pais '+nombre+' por primera vez en la posicion '+(posicion)+' en orden predefinido</p>')
+        };
+        const buscarPaisPosicion=(posicion,paises)=>{
+            let pais=paises[posicion];
+            document.write('<p>En la posicion '+posicion+' se encuentra el pais de: '+pais+'</p>');
+        };
+
+        ////////////////////////////DECLARACION DE VARIABLES/////////////////////////////////
+
+        let paises = ["Afganistán","Bolivia","Colombia","Dinamarca","Egipto","Fiyi",
+        "Grecia","Honduras","India","Jamaica","Kenia","Letonia","Malasia","Nepal",
+        "Omán","Polonia","Qatar","Rumania","Suecia","Túnez","Uganda","Venezuela",
+        "Yemen","Zambia","Belice","Costa Rica","Djibouti","El Salvador","Fiyi",
+        "Gabón","Haití","Indonesia","Japón","Kuwait","Luxemburgo","Mongolia",
+        "Nicaragua","Omán","Perú","Qatar","Rusia","Sudáfrica","Túnez",
+        "Uzbekistán","Vanuatu","Zimbabue",];
+        
+        /////////////////////////////////////////MENU INICIAL///////////////////////////////
+        const intervalo=setInterval(funcion=()=>{
+
+        let opcion=prompt("Elige una opcion de visualizacion: \n"+
+                            "1.-Mostrar numero de paises \n"+
+                            "2.-Mostrar listado de países \n"+
+                            "3.-Mostrar un intervalo de países \n"+
+                            "4.-Añadir un pais \n"+
+                            "5.-Borrar un pais \n"+
+                            "6.-Consultar un pais \n");
+        switch(opcion){
+            case "1":
+                document.write("En total tenemos almacenados "+paises.length+" paises.");
+                break;
+            case "2":
+                let opcion2=prompt("Elige un orden de visualizacion \n"+
+                                "1.-Orden predefinido \n"+
+                                "2.-Al contario del orden predefinido \n"+
+                                "3.-Ordenados alfabeticamente");
+                    switch(opcion2){
+                        case "1":
+                            mostrarOrdenPredefinidoLos(paises);
+                            break;
+                        case "2":
+                            mostrarOrdenInversoLos(paises);
+                            break;
+                        case "3":
+                            mostrarOrdenAlfabeticoLos(paises);
+                            break;
+                    };
+                break;
+            case "3":
+                let intervalo=prompt("dime el intervalo de posiciones ejemplo: 3-20").split("-");
+                mostrarIntervalo(intervalo[0],intervalo[1],paises);
+                break;
+            case "4":
+                let opcion4=prompt("seleccion donde quieres hacer la insercion:\n"+
+                                    "1.-Insertar al principio \n"+
+                                    "2.-Insertar al final");
+                let pais=prompt("Esbribe el pais");
+                insertarPais(opcion4,pais,paises);
+                mostrarOrdenPredefinidoLos(paises);
+                break;
+            case "5":
+            let opcion5=prompt("seleccion donde quieres hacer la insercion:\n"+
+                                    "1.-Eliminar al principio \n"+
+                                    "2.-Eliminar al final");
+                eliminarPais(opcion5,paises);
+                mostrarOrdenPredefinidoLos(paises);
+                break;
+            case "6":
+                let opcion6=prompt("Selecciona una opcion \n"+
+                            "1.-Consultar pais por nombre \n"+
+                            "2.- Consultar pais por posicion");
+                    switch(opcion6){
+                        case "1":
+                            let pais=prompt("Dime el nombre del pais");
+                            buscarPaisNombre(pais,paises);
+                            break;
+                        case "2":
+                            let opcion=prompt("Dime la posicion del pais");
+                            buscarPaisPosicion(opcion,paises);
+                            break;
+                    };
+                break;
+            default:
+                document.write("error inesperado");
+                break;
+        };
+
+        if(opcion==="0"){ clearInterval(intervalo)};
+    },15000);
+
+    </script>
+</body>
+</html>

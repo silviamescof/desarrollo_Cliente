@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--4. ACTIVIDAD 4
+Se quieren almacenar los resultados obtenidos en las elecciones a alcalde de Castro
+Urdiales, y ha habido 4 colegios electorales donde se ha podido votar (Ataulfo Argenta,
+Zapatero,Santa Catalina, y Riomar) y 6 partidos candidatos a las elecciones (PSOE, PP, IU,
+Ciudadanos, Podemos y UPYD).
+Deberás realizar una página web que tendrá varias opciones (puedes implementarlas en
+botones y prompts).
+▪ Solicitar al usuario todos los votos por colegio electoral y partido, y
+almacenarlos (el programa indicará el nombre del colegio y del partido, no
+solo la posición).
+▪ Permitir que el usuario indique un colegio y un partido y pueda modificar el
+dato almacenado.
+▪ Permitir que el usuario indique un colegio y le muestre el total de votos
+recibidos.
+DESARROLLO WEB EN ENTORNO CLIENTE UD03. ACTIVIDADES REPASO EXÁMEN
+CFGS. DESARROLLO DE APLICACIONES WEB UD01 - PÁGINA 3
+▪ Permitir que el usuario indique un partido y le muestre el total de votos
+recibidos.
+Además, en la página web se mostrarán:
+▪ Una tabla con todos los colegios electorales y todos los partidos, y sus votos
+asociados.
+▪ Calcular el número total de votos por partido y por colegio, y colocarlos al
+final de las filas y columnas de la tabla.
+▪ Indicar por orden de mayor a menor votos recibidos el listado de colegios.
+▪ Indicar por orden de mayor a menor votos recibidos el listado de candidatos.-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let EleccionesCastroUrdiales={ataulfo:{
+                                                psoe:100,
+                                                pp:80,
+                                                iu:32,
+                                                ciudadanos:80,
+                                                podemos:50,
+                                                upid:110,
+                                            },
+                                    zapatero:{  
+                                                psoe:50,
+                                                pp:32,
+                                                iu:100,
+                                                ciudadanos:165,
+                                                podemos:121,
+                                                upid:5,
+                                            },
+                                    santacatalina:{
+                                                psoe:48,
+                                                pp:300,
+                                                iu:25,
+                                                ciudadanos:50,
+                                                podemos:103,
+                                                upid:2,
+                                            },
+                                    riomar:{
+                                                psoe:14,
+                                                pp:100,
+                                                iu:23,
+                                                ciudadanos:1,
+                                                podemos:500,
+                                                upid:254,
+                                            },
+                                    };
+
+   // Rellenar los votos
+   for (const colegio in EleccionesCastroUrdiales) {
+            for (const partido in EleccionesCastroUrdiales[colegio]) {
+                const votos = parseInt(prompt(`Dime el número de votos para el partido ${partido} en el colegio ${colegio}`));
+                EleccionesCastroUrdiales[colegio][partido] = votos;
+            }
+        }
+        /////////////// he hecho hasta aqui sin ayuda///////////
+
+        // Mostrar los resultados en una tabla
+        document.write("<table border='1'><tr><th>Colegio</th><th>PSOE</th><th>PP</th><th>IU</th><th>Ciudadanos</th><th>Podemos</th><th>UPYD</th><th>Total</th></tr>");
+
+        for (const colegio in EleccionesCastroUrdiales) {
+            document.write("<tr>");
+            let totalColegio = 0;
+            document.write(`<td>${colegio}</td>`);
+            for (const partido in EleccionesCastroUrdiales[colegio]) {
+                totalColegio += EleccionesCastroUrdiales[colegio][partido];
+                document.write(`<td>${EleccionesCastroUrdiales[colegio][partido]}</td>`);
+            }
+            document.write(`<td>${totalColegio}</td>`);
+            document.write("</tr>");
+        }
+
+        // Calcular el total de votos por partido
+        let totalPartidos = {};
+
+        for (const colegio in EleccionesCastroUrdiales) {
+            for (const partido in EleccionesCastroUrdiales[colegio]) {
+                if (totalPartidos[partido] === undefined) {
+                    totalPartidos[partido] = 0;
+                }
+                totalPartidos[partido] += EleccionesCastroUrdiales[colegio][partido];
+            }
+        }
+
+        document.write("<tr><td>Total</td>");
+        let totalGlobal = 0;
+        for (const partido in totalPartidos) {
+            document.write(`<td>${totalPartidos[partido]}</td>`);
+            totalGlobal += totalPartidos[partido];
+        }
+        document.write(`<td>${totalGlobal}</td></tr>`);
+        document.write("</table>");
+    
+    </script>
+</body>
+</html>

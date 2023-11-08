@@ -6,7 +6,7 @@
 
     for(let i=1;i<10000;i++){
 
-         ////// for know i is primo///
+         ////// for know i is prime///
          let primo=true;
          let palindromo=false;
 
@@ -14,38 +14,26 @@
                 
             if(i%x==0){
                 primo=false;
+                break;
             };
-        };
-        if(primo){
-            //for know if, i is palindromo///
-            if(i<10){
-                palindromo=true;
-            };
-            if(i>=10 && i<100){
-                if(Math.floor(i/10)==Math.floor(i%10)){
-                    palindromo=true;
-                };
-            }else if(i>=100 && i<1000){
-                if(Math.floor(i/100)==Math.floor(i%100)){
-                    palindromo=true;
-                };
-            }else if(i>=1000 && i<10000){
-                if(Math.floor(i/1000)==Math.floor(i%1000)){
-                    palindromo=true;
-                };
-            };
-
             
         };
-
-        if(primo&&palindromo)
+        //If the number is prime, check if it is a palindrome.
+        if(primo){
+           let numero=i.toString();
+           if(numero===numero.split('').reverse().join('')){
+            palindromo=true;
+           };
+            
+        };
+        //If it meets both conditions, I insert it into the array
+        if(primo===true && palindromo===true){
             primosYpalindromos.push(i);
-       
         };
        
-        
-        let texto="son primos y palindromos : ";
+    };
+        console.log("son primos y palindromos : ");
 
         primosYpalindromos.forEach(element => {
-            console.log(texto+=element+',');
+            console.log(element+',');
         });
