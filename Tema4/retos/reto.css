@@ -1,0 +1,63 @@
+body {
+    margin: 0;
+}
+
+#audio {
+    display: none;
+}
+
+#contentbutton {
+    background-color: aquamarine;
+    width: 96%;
+    height: 700px;
+    border: solid pink 20px;
+    position: relative; /* Agrega posicionamiento relativo */
+    z-index: 0;
+}
+
+#comenzar {
+    width: 60%;
+    height: 100px;
+    margin-top: 300px;
+    margin-left: 20%;
+    font-family: Haettenschweiler;
+    font-size: 3em;
+    background-color: pink;
+    border-radius: 25px;
+    position: relative; /* Agrega posicionamiento relativo */
+    z-index: 1;
+}
+
+#tablero,
+#descripcion,
+#puntos,
+#imagenes {
+    position: relative; /* Agrega posicionamiento relativo */
+    z-index: 1;
+}
+p{
+    margin: 20px;
+    margin-left: 30px;
+    font-family: Haettenschweiler;
+    font-size: 1.5em;
+    font-weight: bold;
+    border: solid pink 2px;
+    text-align: center;
+}
+#imagenes{
+    border:solid pink 2px;
+    margin: 30px;
+}
+img{
+    height: 200px;
+    margin: 20px;
+}
+style{
+    margin: 30px;
+    font-family: Haettenschweiler;
+    font-size: 1.5em;
+
+}
+#memorion{
+    height: 50%;
+}
