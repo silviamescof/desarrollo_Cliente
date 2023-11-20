@@ -11,8 +11,8 @@ let cartas=[document.getElementById("img0"),
             document.getElementById("img8"), 
             document.getElementById("img9")];
 
-let rutas=["/img/pocahontas.png","/img/ariel.png","/img/sirenita.png","/img/jasmine.png","/img/cuasimodo.png",
-"/img/pocahontas.png","/img/ariel.png","/img/sirenita.png","/img/jasmine.png","/img/cuasimodo.png"];
+let rutas=["./img/pocahontas.png","./img/ariel.png","./img/sirenita.png","./img/jasmine.png","./img/cuasimodo.png",
+"./img/pocahontas.png","./img/ariel.png","./img/sirenita.png","./img/jasmine.png","./img/cuasimodo.png"];
 rutas = shuffleArray(rutas);
 let comenzar=document.getElementById("comenzar");
 let descripcion=document.getElementById("descripcion");
@@ -39,7 +39,7 @@ const iniciarJuego=()=>{
     audio.play();
 
     cartas.forEach(element => {
-        element.setAttribute("src","/img/carta.png");
+        element.setAttribute("src","./img/carta.png");
     });
 
 };
@@ -51,7 +51,7 @@ const compruebaIguales=()=>{
                 const keys = Array.from(pulsaciones.keys());
                 setTimeout(() => {
                     keys.forEach(element => {
-                        element.setAttribute("src", "/img/carta.png");
+                        element.setAttribute("src", "./img/carta.png");
                     });
                 }, 1000);
             } else {
@@ -76,7 +76,7 @@ const compruebaVictoria=()=>{
             element.style.display='none';
         });
         document.write('<h1 style="margin: 30px; font-family: Haettenschweiler;font-size: 3.5em;"">ENHORABUENA, A PARTIR DE AHORA TE APODAS: "EL MEMORION"</h1>');
-        document.write('<img src="/img/memorion.jpg" id="memorion" ' +
+        document.write('<img src="./img/memorion.jpg" id="memorion" ' +
     'style="height: 300px; margin-left: 50px;">');
 
     };

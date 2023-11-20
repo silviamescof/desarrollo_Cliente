@@ -8,9 +8,8 @@ body {
 
 #contentbutton {
     background-color: aquamarine;
-    width: 96%;
-    height: 700px;
-    border: solid pink 20px;
+    width: 100%;
+    height: 1000px;
     position: relative; /* Agrega posicionamiento relativo */
     z-index: 0;
 }
@@ -24,16 +23,14 @@ body {
     font-size: 3em;
     background-color: pink;
     border-radius: 25px;
-    position: relative; /* Agrega posicionamiento relativo */
-    z-index: 1;
+    position: relative; 
 }
 
 #tablero,
 #descripcion,
 #puntos,
 #imagenes {
-    position: relative; /* Agrega posicionamiento relativo */
-    z-index: 1;
+    position: relative;
 }
 p{
     margin: 20px;
@@ -41,11 +38,9 @@ p{
     font-family: Haettenschweiler;
     font-size: 1.5em;
     font-weight: bold;
-    border: solid pink 2px;
     text-align: center;
 }
 #imagenes{
-    border:solid pink 2px;
     margin: 30px;
 }
 img{
