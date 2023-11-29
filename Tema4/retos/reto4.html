@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--Este reto consiste en aprender los mecanismos de validacion por defecto que tiene-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span id="forfaits"></span><span id="resetforfaits"></span><span id="socios"></span><span id="resetsocioss"></span>
+    <form action="#" method="post" id="miFormulario">
+        <h1>Mi primer formulario Javascript</h1>
+        <table>
+            <tr>
+                <td><label for="id">Identificador</label></td>
+                <td><input  id="id" type="text" minlength="10" maxlength="10" pattern="^[a-zA-Z]\d{8}[a-zA-Z]$" required></td>
+                <td><span id="spanid"></span></td>
+            </tr>
+            <tr>
+                <td><label for="nombre">Nombre y Apellidos</label></td>
+                <td><input id="nombre" type="text" maxlength="50" pattern="^[a-zA-Z\s]+$" required></td>
+                <td><span id="spannombre"></span></td>
+            </tr>
+            <tr>
+                <td><label for="fecha">Fecha de nacimiento</label></td>
+                <td><input id="fecha" type="text" minlength="10" pattern="^(0[1-9]|[1-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/\d{4}$"></td>
+                <td><span id="spanfecha"></span></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email</label></td>
+                <td><input id="email" type="text" maxlength="20" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"></td>
+                <td><span id="spanemail"></span></td>
+            </tr>
+            <tr>
+                <td><label for="telefono">Telefono</label></td>
+                <td><input id="telefono" type="text" maxlength="20"></td>
+                <td><span id="spantelefono" ></span></td>
+            </tr>
+            <tr>
+                <td><label for="edad">Edad</label></td>
+                <td><select id="edad">
+                    <option value="niño">Niño</option>
+                    <option value="niño">Adulto</option>
+                    <option value="niño">Jubilado</option>
+                </select>
+                </td>
+                <td><span id="spanedad"></span></td>
+            </tr>
+            <tr>
+                <td><label for="miembro">Club de ski</label></td>
+                <td><input id="miembro" type="checkbox" value="1"></td>
+                <td><span id="spanmiembro"></span></td>
+            </tr>
+            <tr class="oculto" hidden>
+                <td><label for="socio">Numero de socio</label></td>
+                <td><input id="socio" type="number" min="10000" max="99999" ></td>
+                <td><span id="spansocio"></span></td>
+            </tr>
+            <tr class="oculto" hidden>
+                <td><label for="categoria">Categoria</label></td>
+                <td><input name="categoria" type="radio" value="infantil">Infantil<input name="categoria" type="radio" value="juvenil">Juvenil<input name="categoria" type="radio" value="senior">Senior</td>
+                <td><span id="spancategoria" hidden></span></td>
+            </tr>
+            <tr>
+                <td><input id="enviar" type="submit"><span id="spanenviar" hidden></span></td>
+            </tr>
+
+        </table>
+    </form>
+    <script src="reto4.js"></script>
+</body>
+</html>
