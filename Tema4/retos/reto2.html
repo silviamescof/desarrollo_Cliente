@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--Este reto consiste en aprender los mecanismos de validacion por defecto que tiene-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,28 +12,28 @@
         <table>
             <tr>
                 <td><label for="id">Identificador</label></td>
-                <td><input  id="id" type="text" minlength="10" maxlength="10" pattern="^[a-zA-Z]\d{8}[a-zA-Z]$"></td>
-                <td><span id="spanid" hidden></span></td>
+                <td><input  id="id" type="text" minlength="10" maxlength="10" pattern="^[a-zA-Z]\d{8}[a-zA-Z]$" required></td>
+                <td><span id="spanid"></span></td>
             </tr>
             <tr>
                 <td><label for="nombre">Nombre y Apellidos</label></td>
-                <td><input id="nombre" type="text" maxlength="50" pattern="^[a-zA-Z\s]+$"></td>
-                <td><span id="spannombre" hidden></span></td>
+                <td><input id="nombre" type="text" maxlength="50" pattern="^[a-zA-Z\s]+$" required></td>
+                <td><span id="spannombre"></span></td>
             </tr>
             <tr>
                 <td><label for="fecha">Fecha de nacimiento</label></td>
                 <td><input id="fecha" type="text" minlength="10" pattern="^(0[1-9]|[1-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/\d{4}$"></td>
-                <td><span id="spanfecha" hidden></span></td>
+                <td><span id="spanfecha"></span></td>
             </tr>
             <tr>
                 <td><label for="email">Email</label></td>
                 <td><input id="email" type="text" maxlength="20" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"></td>
-                <td><span id="spanemail" hidden></span></td>
+                <td><span id="spanemail"></span></td>
             </tr>
             <tr>
                 <td><label for="telefono">Telefono</label></td>
                 <td><input id="telefono" type="text" maxlength="20"></td>
-                <td><span id="spantelefono" hidden></span></td>
+                <td><span id="spantelefono" ></span></td>
             </tr>
             <tr>
                 <td><label for="edad">Edad</label></td>
@@ -42,17 +43,17 @@
                     <option value="niño">Jubilado</option>
                 </select>
                 </td>
-                <td><span id="spanedad" hidden></span></td>
+                <td><span id="spanedad"></span></td>
             </tr>
             <tr>
                 <td><label for="miembro">Club de ski</label></td>
                 <td><input id="miembro" type="checkbox" value="1"></td>
-                <td><span id="spanmiembro" hidden></span></td>
+                <td><span id="spanmiembro"></span></td>
             </tr>
             <tr class="oculto" hidden>
                 <td><label for="socio">Numero de socio</label></td>
                 <td><input id="socio" type="number" min="10000" max="99999" ></td>
-                <td><span id="spansocio" hidden></span></td>
+                <td><span id="spansocio"></span></td>
             </tr>
             <tr class="oculto" hidden>
                 <td><label for="categoria">Categoria</label></td>
@@ -60,58 +61,90 @@
                 <td><span id="spancategoria" hidden></span></td>
             </tr>
             <tr>
-                <td><input id="enviar" type="submit"></td>
+                <td><input id="enviar" type="submit"><span id="spanenviar" hidden></span></td>
             </tr>
 
         </table>
     </form>
     <script>
+
+        //funcion que valida el formulario
         function validarformulario(event) {
-           
-                event.preventDefault();
-
-                let valido=true;
-
+            event.preventDefault();
+               /*Traemos todos los elemtnos del formulario, este validador funciona con cualqueir formulario, 
+               siempre y cuando TODOS los imput se correspondan con un span que tenga de id="span"+ la id del input*/
                 let elementos = document.getElementById("miFormulario").elements;
+                /*El metodo anterior nos devuelve una coleccion por lo que lo parseamos a un array 
+                para poder trabajar con el como dicho objeto*/
+                let elementosArray = Array.from(elementos);
 
-                elementos.forEach(element => {
+                //console.log(elementosArray);//linea de depuracion
+                /*el array contiene en cada posicion un elemento html del formulario, solo los elementos input tienen
+                reglas de validacion, por lo que aunque los recorra todos, solo va a reaccionar a los elementos que tengan
+                reglas de validacion y que estas no se cumplan, por ello, vamos revisando elemento por elemento*/
+                elementosArray.forEach(element => {
 
+                    //console.log(element);//linea de depuracino
+                        //construimos el la id del span para poder acceder a el
+                        let spanId = 'span' + element.id;
+
+                        //console.log(spanId);//linea de depuracion
+                        //traemos el span que ya hemos identificado
+                        let spanElement = document.getElementById(`${spanId}`);
+                        
+                        //console.log(spanElement);//linea de depuracion
+                        //nos aseguramos de que no contenga ningun valor
+                        spanElement.innerHTML = '';
+
+                        //console.log(element.checkValidity());//linea de depuracion
+                    //pasamos el validador..... si el elemento que tenemos en esta iteracion NO es valido....
                     if (!element.checkValidity()) {
 
-                        valido=false;
-                        let spanId = 'span' + element.id;
-                        let spanElement = document.getElementById(spanId);
-                        
+                        /*si no es valido se ha debido de crear un mensaje no obstante se coprueba*/
                         if (element.validationMessage) {
+                            //y se incluye en el  span
                             spanElement.innerHTML += `<br>Error: ${element.validationMessage}`;
+                            spanElement.style.border="solid 1px red";
+                            spanElement.style.color="red";
                         }
+                        //si no tiene valor....
                         if (element.validity.valueMissing) {
+                            //se incluye en el span
                             spanElement.innerHTML += `<br>Valor faltante`;
+                            spanElement.style.border="solid 1px red";
+                            spanElement.style.color="red";
                         }
-                        if (element.validity.typeMismatch) {
+                        //si no cumple con el patron.. se incluye en el span
+                        if (element.validity.patternMismatch) {
                             spanElement.innerHTML += `<br>Tipo incorrecto`;
+                            spanElement.style.border="solid 1px red";
+                            spanElement.style.color="red";
                         };
                         
                     };
                 });
-            };
-            if(valido){
-                return true;
-            }else{
-                return false;
-            };
-            
+        };
+        
+        /*evento contenedor del resto de escuchadores, que sive para que el resto escuchen
+        siemore y cuando la pagina esté cargada, es una forma de evitar errores al ejecutar acciones
+        sobre elementos, que puedieran no estar cargados*/
 
-        window.addEventListener("load", () => {
-            
+        window.addEventListener("load", function(){
+            //evento que valida el formulario para personalizar los errores
             document.getElementById("enviar").addEventListener("click", validarformulario);
 
-            document.getElementById("miembro").addEventListener("click", (event) => {
+            //evento que despliega los elementos ocultos
+            document.getElementById("miembro").addEventListener("click", function(event) {
+
+                //coge todos los elementos que sean de clase oculto
                 let ocultoElements = document.querySelectorAll(".oculto");
+                //itera sobre ellos eliminando dicha propiedad
                 ocultoElements.forEach(element => {
                     element.removeAttribute("hidden");
                 });
+
             });
+
         });
     </script>
 </body>
