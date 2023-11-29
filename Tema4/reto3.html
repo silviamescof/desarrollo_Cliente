@@ -1,5 +1,39 @@
 <!DOCTYPE html>
-<!--Este ejercicio consiste en aprender a validar formularios con criterior propios-->
+<!--Este ejercicio consiste en aprender a validar formularios con criterior propios
+
+
+Walter White y Jesse Pinkman tienen que controlar las bolsas de producto azul que cocinan
+para distribuir en Alburquerque. Para ello tienen que crear una web que permita realizar
+validaciones de una serie de códigos.
+Para ello no crearás un formulario, sino una serie de grupos de los siguientes elementos:
+párrafo (describe el tipo de validación a realizar) y bajo él una etiqueta, un campo de texto,
+un botón y una imagen. Al pulsar el botón, si la expresión regular introducida en el campo
+de texto es correcta, se mostrará una imagen con un tick verde; de lo contrario se mostrará
+una cruz roja. Los campos a validar son:
+• Fecha y hora de creación: en formato «dd/mm/aaaa hh:mm».
+• Cocinero: será un nombre en clave formado por dos letras en mayúscula, un símbolo y
+cuatro dígitos (ej. WW$1234)
+• Destinatario: estará formado por dos o tres letras mayúsculas correspondientes al
+estado, un guión bajo, el nombre de la ciudad en minúsculas, dos puntos, y el código
+de distrito de 4 digitos (ej. NM_alburquerque:1234).
+• Gramos: será un número del 1000 al 5000.
+• Composición: estará formado por una cantidad en gramos seguida de dos conjuntos de
+una o dos letras seguidas o no de un número. (ej. 200gC3OH7)
+• Número de cuenta de EEUU: supongamos que un número de cuenta estadounidense
+tiene el siguiente formato:
+.1 Dos letras: suponemos que el valor de cada letra es del 1 al 26 (no hay ñ ni ll).
+.2 Dos dígitos: debe corresponderse con la suma de la primera letra y la segunda: en
+caso de que sea menor que 10 se pone el 0 delante.
+.3 Un guión.
+.4 Doce dígitos de cuenta
+.5 Un guión.
+.6 Dos dígitos de control: los dos primeros deben ser la suma de los 6 primeros dígitos
+de la cuenta dividido entre 6 y extrayendo solamente su parte entera; y los dos
+últimos exactamente igual, pero con los 6 siguientes.
+.7 Si el número está correcto se colocará en un campo de texto al lado del anterior, pero
+sin guiones: solamente los números y las letras.-->
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -118,9 +152,11 @@
                             spanElement.innerHTML = '✅';
                         };
                         break;
-                        
+
                     case "cuenta":
+                        let letras=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
                         let cuenta=element.value;
+
                         let dosLetras=cuenta.substring(0-2);
                         let dosDigitos=cuenta.substring(2-4);
                         let guion=cuenta[4];
@@ -128,8 +164,26 @@
                         let guion2=cuenta[17];
                         let control=cuenta.substring(18,20);
 
+                        let patronDosDigitos=new RegExp((letras.indexOf(dosDigitos[0])+1)+(letras.indexOf(dosDigitos[1])+1));
+                        let patronControl=new RegExp( toString((Number(doceDigitos[0])+Number(doceDigitos[1])+Number(doceDigitos[2])+Number(doceDigitos[3])+Number(doceDigitos[4])+Number(doceDigitos[5])))+toString((Number(doceDigitos[6])+Number(doceDigitos[7])+Number(doceDigitos[8])+Number(doceDigitos[9])+Number(doceDigitos[10])+Number(doceDigitos[11]))));
+
                         let cuentaDefinitiva;
-                        let valido=true;
+
+                        if(!/^[a-zA-Z]{2}$/.test(cuenta)){
+                            spanElement.innerHTML = '❌';
+                        }else if(!patronDosDigitos.test(dosDigitos)){
+                            spanElement.innerHTML = '❌';
+                        }else if(!/-/.test(guion)){
+                            spanElement.innerHTML = '❌';
+                        }else if(!/\d{12}/.test(doceDigitos)){
+                            spanElement.innerHTML = '❌';
+                        }else if(!/-/.test(guion2)){
+                            spanElement.innerHTML = '❌';
+                        }else if(!patronControl.test(control)){
+                            spanElement.innerHTML = '❌';
+                        }else{
+                            spanElement.innerHTML = '✅';
+                        }
 
                         break;
                    
