@@ -1,0 +1,15 @@
+body{
+    width: 100%;
+}
+img{
+    width: 150px;
+}
+p{
+    width: 150px;
+}
+figure{
+    display: inline-block;
+}
+h1{
+    text-align: center;
+}

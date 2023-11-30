@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--5. u4e5_modificarelementos.html
+Diseña una página informativa que contenga varios personajes. Pueden ser personajes de
+una serie o película, miembros de un grupo de música, personajes históricos, etc.
+Por un lado, dispondrás de un conjunto de imágenes de los personajes, mínimo 8 (puedes
+alojarlas en una tabla). Por otro lado, tendrás un panel informativo que alojará textos. Y,
+por último, una serie de botones (mínimo 3).
+Al poner el ratón sobre cada una de las imágenes se mostrará información del personaje
+pulsado en el panel informativo.
+Además, al pulsar los botones, permitirá modificar el aspecto de ciertas imágenes que
+formen parte de una clase determinada y mostrará un texto diferente en el panel. Habrá
+imágenes que tengan más de una clase.
+Por ejemplo, si decides hacerlo sobre personajes de los Simpson, puedes poner un botón
+que seleccione los personajes de la Familia Simpson; otro que seleccione los personajes que
+van al instituto; otro de los personajes que trabajan en la central nuclear… de tal manera
+que, por ejemplo, Bart es de la familia Simpson y además va al instituto; o Hommer es de la
+familia Simpson y trabaja en la central nuclear. Recuerda que el código html deberá estar
+separado del código javascript, y que cada archivo javascript debería almacenar funciones
+que solamente hagan referencia a un tema.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reto5.css">
+</head>
+<body>
+    <h1>JUEGO DE CLASIFICACIONES</h1>
+    <span><img id="albus" class="profesor " src="./img/albus.png" alt="Albus Dumbeldore"></span>
+    <span><img id="bellatrix" class="malignos slicerin" src="./img/bellatrix.png" alt="Bellatrix Lextreinch"></span>
+    <span><img id="dobby" class="" src="./img/dobby.png" alt="Dobby el elfo libre"></span>
+    <span><img id="draco" class="malignos cobarde slicerin" src="./img/draco.png" alt="Draco Malfoyd"></span>
+    <span><img id="harry" class="griffindor" src="./img/harry.png" alt="Harry Potter"></span><br>
+    <span><img id="hermione" class="griffindor" src="./img/hermione.png" alt="Hermione Greinger"></span>
+    <span><img id="voldemort" class="malignos slicerin" src="./img/lord.png" alt="Lord Voldemort"></span>
+    <span><img id="luna" class="ravwenclaw" src="./img/luna.png" alt="Luna Lovegood"></span>
+    <span><img id="mirtle" class="ravwenclaw cobarde" src="./img/mirtle.png" alt="Mirtle la llorona"></span>
+    <span><img id="ron" class="griffindor cobarde" src="./img/ron.png" alt="Ron Weasly"></span>
+    <span><img id="snake" class="profesor slicerin" src="./img/snake.png" alt="Profesor Snake"></span>
+    <script src="reto5.js"></script>
+    <p id="descripcion"></p>
+    <button id="malignos" value="Malignos Declarados">Malignos Declarados</button>
+    <button id="griffindor" value="Miembros de Griffindor">Miembros de Griffindor</button>
+    <button id="ravwenclaw" value="Miembros de ravenclaw">Miembros de Ravwenclaw</button>
+    <button id="slicerin" value="Miembros de slicerin">Miembros de Slicerin</button>
+    <button id="profesores" value="Miembros de ravenclaw">Profesores</button>
+    <button id="cobardes" value="Miembros de ravenclaw">Cobardes</button>
+</body>
+</html>

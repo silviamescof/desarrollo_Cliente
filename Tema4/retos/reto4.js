@@ -1,8 +1,18 @@
 
         //funcion que valida el formulario
-        let forfaits=0;
-        let socios=0;
-        localStorage.setItem("forfaits", forfaits);
+        
+        let destruyeCookie= setInterval(()=>{
+
+            let sistema= new Date();
+            let hora=sistema.getHours();
+            let minutos=sistema.getMinutes();
+            let segundos=sistema.getSeconds();
+
+            if(hora=="23" && minutos=="59" && segundos=="59"){
+                localStorage.removeItem('forfaits');
+            };
+
+        },1000);
 
         function validarformulario(event) {
             event.preventDefault();
@@ -12,14 +22,18 @@
                 /*El metodo anterior nos devuelve una coleccion por lo que lo parseamos a un array 
                 para poder trabajar con el como dicho objeto*/
                 let elementosArray = Array.from(elementos);
+                let esSocio = document.getElementById("miembro").checked;
+                console.log(esSocio);
+                let valido=true;
 
                 //console.log(elementosArray);//linea de depuracion
                 /*el array contiene en cada posicion un elemento html del formulario, solo los elementos input tienen
                 reglas de validacion, por lo que aunque los recorra todos, solo va a reaccionar a los elementos que tengan
                 reglas de validacion y que estas no se cumplan, por ello, vamos revisando elemento por elemento*/
+                
                 elementosArray.forEach(element => {
 
-                        let valido=true;
+                        
                     //console.log(element);//linea de depuracino
                         //construimos el la id del span para poder acceder a el
                         let spanId = 'span' + element.id;
@@ -30,7 +44,7 @@
                         
                         //console.log(spanElement);//linea de depuracion
                         //nos aseguramos de que no contenga ningun valor
-                        spanElement.innerHTML = '';
+                        //spanElement.innerHTML = '';
 
                         //console.log(element.checkValidity());//linea de depuracion
                     //pasamos el validador..... si el elemento que tenemos en esta iteracion NO es valido....
@@ -57,16 +71,31 @@
                             spanElement.style.border="solid 1px red";
                             spanElement.style.color="red";
                         };
-                        
+                           
                     };
                 });
-                if(valido){
-                    forfaits ++;
+                if (esSocio) {
 
-                    document.getElementById("socios").innerHTM = socios;
-                }
+                    let valorSocios = localStorage.getItem("socios");
+
+                    valorSocios++;
+                    localStorage.setItem("socios", valorSocios);
+                     
+                    document.getElementById("socios").innerHTML = 'Socios' + valorSocios;
+                };
+                       
+                if(valido){
+                    let valor=localStorage.getItem("forfaits");
+                    valor++;
+                    localStorage.setItem("forfaits", valor);
+
+                    document.getElementById("forfaits").innerHTML = 'Forfaits'+valor;
+                };
         };
-        
+
+        document.getElementById("socios").innerHTML = 'Socios '+localStorage.getItem("socios");
+        document.getElementById("forfaits").innerHTML = 'Forfaits '+localStorage.getItem("forfaits");
+
         /*evento contenedor del resto de escuchadores, que sive para que el resto escuchen
         siemore y cuando la pagina esté cargada, es una forma de evitar errores al ejecutar acciones
         sobre elementos, que puedieran no estar cargados*/
@@ -84,13 +113,13 @@
                 ocultoElements.forEach(element => {
                     element.removeAttribute("hidden");
                 });
-
+               
             });
-            if(valido){
-                
-                socios ++;
-
-                document.getElementById("socios").innerHTM = socios;
-            };
-
+            this.document.getElementById("resetforfaits").addEventListener("click",function(){
+                localStorage.setItem("forfaits", 0);
+            });
+            this.document.getElementById("resetsocios").addEventListener("click",function(){
+                localStorage.setItem("socios", 0);
+            });
+           
         });
