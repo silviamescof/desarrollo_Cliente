@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--El Museo del Memorial de la Batalla de Normandía necesita restablecer su web de control
+de inventario, pero solamente tiene acceso a la base de datos. Aquí tienes el script de la
+base de datos «normandia» con la tabla «armas». En ella se almacena información de
+armas, su descripción, una imagen, y el bando al que pertenece cada una (1: aliados; 2: eje).
+https://github.com/adalovelacetic/javascript/blob/master/6_Ajax/normandia.sql
+https://github.com/adalovelacetic/javascript/tree/master/6_Ajax/armas
+Deberás realizar una web en la que, de manera asíncrona, pueda mostrar todas las armas
+(con su nombre, imagen y descripción) de las que dispone el museo, así como realizar una
+selección de armas por bando.
+Puedes mejorar el programa creando más tablas con más información (vehículos, trajes,
+etc.) que incluyan más consultas personalizadas.
+Nota: para que el acceso a la base de datos no de problemas con los caracteres especiales,
+debéis incluir la siguiente línea después de realizar la conexión en el archivo PHP:
+mysqli_set_charset($conexion, «utf8»);-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>EL MUSEO DE NORMANDÍA</h1>
+    <label for="bando">Selecciona el bando</label>
+    <select name="bando" id="bando">
+        <option value="1">ALIADOS</option>
+        <option value="2">EJE</option>
+    </select>
+    <button id="ver">VER ARMAS</button>
+    <hr>
+    <hr>
+    <table id="tabla">
+
+    </table>
+    <script src="reto4.js"></script>
+</body>
+</html>

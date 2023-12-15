@@ -1,0 +1,20 @@
+const API_URL = "http://jsonplaceholder.typicode.com";
+
+//HTTP Request
+const xhr = new XMLHttpRequest();
+function onRequestHandler () {
+    if (this.readyState === 4 && this.status === 200) {
+        const data = Array.from(JSON.parse(this.response));
+        const HTMLResponse = document.querySelector("#app");
+        console.log(data);
+        HTMLResponse.innerHTML+="<ul>"; 
+        data.forEach(element => {
+            let datos="<li>Nombre: "+element.name+"📧  Email: "+element.email+"</li>";
+            HTMLResponse.innerHTML+=datos; 
+        });
+        HTMLResponse.innerHTML+="</ul>"; 
+    }   
+}
+xhr.addEventListener("load", onRequestHandler);
+xhr.open("GET", `${API_URL}/users`);
+xhr.send();
