@@ -1,0 +1,25 @@
+function findFirstRepeated(gifts) {
+    let mapa = new Map();
+  
+    for (let i = 0; i < gifts.length; i++) {
+      const numero = gifts[i];
+  
+      // Verificar si el número ya está en el mapa
+      if (mapa.has(numero)) {
+        // Si está en el mapa, lo encontramos
+        console.log("El primer número repetido es:", numero, "en el índice:", mapa.get(numero));
+        return numero;
+      } else {
+        // Si no está en el mapa, almacenar su índice
+        mapa.set(numero, i);
+      }
+    }
+  
+    console.log("No hay números repetidos en el array.");
+    return null; // Otra opción es devolver un valor que indique que no se encontró ningún número repetido
+  }
+  
+  // Ejemplo de uso
+  const giftsArray = [2, 1, 3, 5, 3, 2];
+  findFirstRepeated(giftsArray);
+  
