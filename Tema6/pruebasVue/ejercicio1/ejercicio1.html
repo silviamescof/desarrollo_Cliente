@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ejercicio1.css">
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+    <div id="contenido">
+        <h1 v-if="this.informacion && this.informacion['seccion Primera']">
+            {{ this.informacion['seccion Primera'].titulo }}
+        </h1>
+        <nav>
+            <ul>
+              <li v-for="(seccion, nombreSeccion) in this.informacion" :key="nombreSeccion">
+                <a :href="'#' + nombreSeccion">{{ seccion.titulo }}</a>
+              </li>
+            </ul>
+        </nav>
+         <section v-for="(objeto,objetos) in this.informacion" :key="objetos">
+            <h2 >
+                {{objeto.titulo}}
+            </h2>
+            <p>
+                {{objeto.contenido}}
+            </p>
+            <img :src="objeto.imagen">
+         </section> 
+    </div>
+    <script src="ejercicio1.js"></script>
+</body>
+</html>
