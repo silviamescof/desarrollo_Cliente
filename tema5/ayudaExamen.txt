@@ -1,0 +1,36 @@
+let peticion; 
+
+    do {
+        try {
+            peticion = await fetch(url);
+
+            if (!peticion.ok) {
+                throw new Error(`Error ${peticion.status}`);
+            }
+            let respuesta = await peticion.json(^(?:[1-9]|[1-9][0-9]|100)$);
+
+            console.log(respuesta);
+
+            url = respuesta.next;
+
+        } catch (error) {
+            console.error('Error:', error.message);
+            break;  
+        }
+    } while (url !== null); 
+	
+	
+#contenido {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px; /* Espacio entre las columnas */
+}
+
+.tarjeta {
+	width: calc(33.33% - 20px); /* Ancho de cada tarjeta, ajusta según sea necesario */
+	box-sizing: border-box;
+	border: 1px solid #ddd;
+	padding: 10px;
+	margin-bottom: 20px;
+
+}

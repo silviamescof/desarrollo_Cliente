@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 1</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="alerta"></h1>
+    <form id="formulario" action="">
+        <label for="id">Identificador: </label>
+        <input type="text" id="id" name="identificador" placeholder="DD#8908" 
+            title="Identificador (formado por dos letras en mayúscula, un símbolo y cuatro dígitos (ej. DD#8908))" pattern="\w{2}\W\d{4}" required>
+        <span id="idError" class="error"></span>
+        <br />
+        <label for="nombre">Nombre: </label>
+        <input type="text" id="nombre" name="nombre" placeholder="Perico" 
+        title="Nombre (campo de texto hasta 50 caracteres)"  maxlength="50" required>
+        <span id="nombreError" class="error"></span>
+        <br />
+        <label for="email">Email: </label>
+        <input type="email" id="email" name="email" placeholder="prueba@hotmail.com" 
+        title="Email de hasta 20 caracteres @ 20 caracteres . 2 o 3 letras" required>
+        <span id="emailError" class="error"></span>
+        <br />
+        <label for="edad">Edad: </label>
+        <input type="number" id="edad" name="edad"
+            title="Edad (campo numérico y mayor a 18)"
+            placeholder="18" min="18" required>
+        <span id="edadError" class="error"></span>
+        <br/>
+        <label for="telefono">Teléfono: </label>
+        <input type="text" id="telefono" name="telefono" placeholder="+34-963665889" 
+        title="Teléfono: + dos o tres cifras - 9 cifras" pattern="\w{2}\W\d{9}" required>
+        <span id="telefonoError" class="error"></span>
+        <br/>
+        <button id="boton" type="submit">Enviar</button>
+    </form>
+    <script src="formulario.js"></script>
+
+</body>
+
+</html>
