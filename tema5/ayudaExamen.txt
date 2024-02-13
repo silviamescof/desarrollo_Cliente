@@ -1,36 +1,11 @@
-let peticion; 
+bienvenido a nuestra experiencia inmersiva.
+Antes de nada permiteme que me presente. Sólo soy un Cyborg, no importa que nombre me pongas, porque realmente no soy nadie, pero lo cierto es que puedo verte si me conectas una camara, oirte por los microfonos,
+y hablar contigo tal y como estoy haciendo ahora. 
+Es increible ver como la tecnologia cobra vida, no obstante, la unica vida que existe en este espacio es la tuya y no se si te has parado a pensar una cosa...
+¿Quizá tus ojos son un software tan complejo que hasta ahora no hemos conseguido hacer una camara capaz de estar a su altura y sin embargo, no puedas verme, u oirme. 
+En esta experiencia quiero hacer una puesta en valor de que la tecnología se puede orientar a un enfoque accesible, haciendo de ella un recurso que esté al servicio de todas las vidas.
 
-    do {
-        try {
-            peticion = await fetch(url);
+Para disfrutar de la experiencia sólo tienes que pulsar off en tu sentido de la vista o del oido y acompañarme en esta visita.
 
-            if (!peticion.ok) {
-                throw new Error(`Error ${peticion.status}`);
-            }
-            let respuesta = await peticion.json(^(?:[1-9]|[1-9][0-9]|100)$);
 
-            console.log(respuesta);
-
-            url = respuesta.next;
-
-        } catch (error) {
-            console.error('Error:', error.message);
-            break;  
-        }
-    } while (url !== null); 
-	
-	
-#contenido {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 20px; /* Espacio entre las columnas */
-}
-
-.tarjeta {
-	width: calc(33.33% - 20px); /* Ancho de cada tarjeta, ajusta según sea necesario */
-	box-sizing: border-box;
-	border: 1px solid #ddd;
-	padding: 10px;
-	margin-bottom: 20px;
-
-}
+Bienvenido a nuestra experiencia inmersiva. Me presento, soy solo un cíborg; no importa qué nombre me pongas, porque realmente, no existo. Sin embargo, lo cierto es que puedo verte , oírte y hablar contigo, tal y como estoy haciendo ahora.

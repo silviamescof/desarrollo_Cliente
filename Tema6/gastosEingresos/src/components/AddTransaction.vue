@@ -1,12 +1,17 @@
 <script setup>
 import { ref, defineEmits,computed } from 'vue';
+import { useToast } from 'vue-toastification';
 
 ///////////VARIABLES///////////////
-
+//const toast= useToast()
 const emits = defineEmits('datosTransaccion');
 const concepto = ref('');
 const input = ref('');
+//funcion para emitir valores al padre//
 const addTransaccion = computed(() => {
+  /*yo ya he controlado un mensaje predefinido si  no hay concepto pero si queremos hacerlo required podemos mandar notificaciones con Toast
+  de la siguiente manera: if(concepto.value)===''{
+    toast.error(incluir aqui el mensaje de error)*/
   emits('datosTransaccion', concepto.value, input.value);
   concepto.value = '';
   input.value = '';
